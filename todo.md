@@ -158,6 +158,12 @@
 - [x] Increase undersized mobile text across navigation, feature labels, supporting copy, and actions.
 - [x] Validate the revised mobile reading experience and save a delivery checkpoint.
 
+## Visual Editor Comment Follow-up
+
+- [x] Locate the unresolved hero and product-section editor targets and interpret the user’s image/visibility comments.
+- [x] Apply the requested image replacement, visibility fixes, and removal of unnecessary product-detail text.
+- [x] Verify desktop/mobile presentation and create a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
