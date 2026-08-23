@@ -16,6 +16,6 @@ export default function SiteFooter() {
         <div><span>SOLUTIONS</span><a href="/#solutions">For schools</a><a href="/#solutions">For workplaces</a><a href="/demo">Request a demo</a></div>
       </nav>
     </div>
-    <div className="site-footer-bottom"><span>Education · Enterprise · Healthcare · Manufacturing · Government · Hospitality</span><b>© 2026 Smart Lanyard</b></div>
+    <div className="site-footer-bottom"><b>© 2026 Smart Lanyard</b></div>
   </footer>;
 }

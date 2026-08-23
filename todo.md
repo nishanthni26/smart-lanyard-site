@@ -237,6 +237,17 @@
 - [x] Correct any discovered content, layout, interaction, accessibility, or reliability issues.
 - [x] Validate all routes with tests and desktop/mobile light/dark checks, then save a delivery checkpoint.
 
+## Homepage Messaging Refinement
+
+- [x] Add “One Smart Card. Unlimited Possibilities.” and “ID Reimagined.” to the homepage without crowding the existing hero.
+- [x] Verify the new messaging remains clear and balanced on desktop and mobile, then save a delivery checkpoint.
+
+## Footer and Roadmap Visual-Editor Follow-up
+
+- [x] Remove the targeted footer supporting text indicated by the visual editor without reducing navigation clarity.
+- [x] Redesign the roadmap section into a clearer, more polished presentation of current and upcoming capabilities.
+- [x] Verify the homepage and footer at desktop and mobile sizes, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
