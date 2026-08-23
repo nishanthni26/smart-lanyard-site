@@ -122,6 +122,14 @@ The current UI direction is **Orbit Interface**: spatial blue light, controlled 
 
 The use-case and trust chapters are now treated as **dark verification plates**: nested dark panels, signal rails, calibration grids, status nodes and operational labels keep the product story inside one continuous space. The suspended-loop logo is raised in the navigation and footer and echoed by the orbit and node geometry across the page.
 
+## Editorial Hardware Rebuild
+
+**Editorial Hardware** replaces the prior motion-heavy interface. The direction is confident, quiet and product-literate: warm paper surfaces, ink-black structure, cobalt used only as authority, and no dashboard decoration. A single credential image is staged as a physical artifact; the rest of the story relies on typography, proportion, hierarchy, simple rules and evidence-led interaction. Motion is now reserved for context switching and small, natural entrances.
+
+## Style Decisions
+
+Editorial Hardware is the controlling system. Cobalt is reserved for decisive actions, active context, key proof and the hero’s identity statement. Every major chapter now inherits one credential-derived structural motif—strap, loop, clip edge, signal dot or verification rail—so the brand remains tangible without repeating the product image.
+
 ## Style Decisions
 
 The use-case layer is a **dark verification plate**, integrated into the same cinematic product film rather than a pale SaaS interlude. Electric blue and cyan remain system-path and active-state light, not decorative headline fills. The logo is scaled into a more visible suspended-loop identity in the navigation and footer, while later content echoes the credential through structural lines, status points, material-dark panels, and control geometry rather than repeating the image.

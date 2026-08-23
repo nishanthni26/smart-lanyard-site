@@ -1,116 +1,69 @@
 /**
- * Orbit Interface redesign: a motion-led premium UI for Smart Lanyard.
- * The physical credential appears once as the hero artifact; every other system moment is abstract data motion.
- */
-import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import {
-  ArrowRight,
-  Bell,
-  Building2,
-  Check,
-  ChevronDown,
-  CircleCheck,
-  Compass,
-  Fingerprint,
-  GraduationCap,
-  Menu,
-  MoveUpRight,
-  Orbit,
-  Radio,
-  Shield,
-  Sparkles,
-  X,
-} from "lucide-react";
+ * Editorial Hardware direction: warm-white paper, ink typography, cobalt only as a precise system signal,
+ * and one credibly staged Smart Lanyard product artifact. */
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowDownRight, ArrowUpRight, Building2, Check, ChevronRight, GraduationCap, ShieldCheck, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import "../ux-pro.css";
+import "../editorial.css";
 
-type Context = "students" | "companies";
+type Audience = "education" | "enterprise";
 
 const productImage = "/manus-storage/smart-lanyard-transparent_b686992c.png";
 const brandMark = "/manus-storage/smart-lanyard-loop-logo_e44db5b8.png";
 
-const contextData = {
-  students: {
-    eyebrow: "FOR EDUCATION",
-    title: "A calmer, more connected day.",
-    body: "Give students a familiar wearable layer for the places, schedules and people that matter around campus.",
-    highlights: [
-      { icon: Compass, name: "Arrivals that make sense", text: "A clear arrival signal keeps attendance and pick-up moments in step." },
-      { icon: Bell, name: "Updates in the right place", text: "Schedules, reminders and notices move from the system to the card." },
-      { icon: Shield, name: "Care on standby", text: "Live identity and one-touch response support confident movement." },
-    ],
+const audiences = {
+  education: {
+    label: "EDUCATION",
+    title: "A familiar object for a more considered campus.",
+    body: "Students carry one responsive credential that makes arrivals, access, schedule changes and care easier to understand.",
+    features: ["Live attendance at the point of entry", "Schedule and notice updates on the credential", "A visible, immediate channel for safety support", "Family notifications when routine moments change"],
+    note: "THE OUTCOME  /  FEWER MANUAL MOMENTS. MORE CONTEXT.",
+    icon: GraduationCap,
   },
-  companies: {
-    eyebrow: "FOR COMPANIES",
-    title: "One credential. Less workday friction.",
-    body: "Unify access, identity and live workday information in a format people already understand.",
-    highlights: [
-      { icon: Fingerprint, name: "Access without the shuffle", text: "Move through entry points and shared spaces with one dynamic credential." },
-      { icon: Radio, name: "Signals that stay current", text: "Shifts, meetings and workplace notices can update when they change." },
-      { icon: CircleCheck, name: "Control when it matters", text: "Protect people and spaces with live state changes and immediate actions." },
-    ],
+  enterprise: {
+    label: "ENTERPRISE",
+    title: "A work credential that stays relevant all day.",
+    body: "Identity, access and useful workday information come together in one object people can keep close without another app or card.",
+    features: ["Secure, dynamic access across shared spaces", "Live shift, meeting and organisation updates", "Rapid card controls when a status changes", "A clearer safety layer for moments that matter"],
+    note: "THE OUTCOME  /  ONE CREDENTIAL. A MORE FLUID DAY.",
+    icon: Building2,
   },
 } as const;
 
-const workflow = [
-  { num: "01", label: "Provision", copy: "Issue identity from a secure admin layer." },
-  { num: "02", label: "Activate", copy: "Set access, updates and the experiences that matter." },
-  { num: "03", label: "Move", copy: "Let the card work quietly through the day." },
-  { num: "04", label: "Adapt", copy: "Change what is live without replacing the credential." },
+const details = [
+  { index: "01", title: "One physical layer", copy: "A carefully considered credential that people can see, carry and trust." },
+  { index: "02", title: "Information that changes", copy: "The display reflects the real-time details that matter in the present moment." },
+  { index: "03", title: "Control without clutter", copy: "A calmer operational layer for the teams responsible for identity and access." },
 ];
 
-function scrollTo(id: string) {
+function goTo(id: string) {
   document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 export default function Home() {
-  const [context, setContext] = useState<Context>("students");
-  const [menuOpen, setMenuOpen] = useState(false);
-  const active = contextData[context];
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useSpring(useTransform(y, [-140, 140], [7, -7]), { stiffness: 140, damping: 18 });
-  const rotateY = useSpring(useTransform(x, [-140, 140], [-8, 8]), { stiffness: 140, damping: 18 });
-  const requestDemo = () => toast("Demo request started", { description: "We’ll help you shape the right first rollout." });
-  const navTo = (id: string) => { setMenuOpen(false); scrollTo(id); };
+  const [audience, setAudience] = useState<Audience>("education");
+  const active = audiences[audience];
+  const Icon = active.icon;
+  const requestDemo = () => toast("Demo request started", { description: "We’ll help you plan a focused first deployment." });
 
   return (
-    <main className="orbit-page">
-      <header className="orbit-nav">
-        <button className="orbit-brand" onClick={() => navTo("#top")} aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></button>
-        <nav className="desktop-nav" aria-label="Primary navigation"><button onClick={() => navTo("#contexts")}>Contexts</button><button onClick={() => navTo("#workflow")}>How it works</button><button onClick={() => navTo("#contact")}>Contact</button></nav>
-        <button className="nav-demo" onClick={requestDemo}>Talk to us <MoveUpRight /></button>
-        <button className="menu-toggle" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? "Close menu" : "Open menu"}>{menuOpen ? <X /> : <Menu />}</button>
-      </header>
+    <main className="editorial-page">
+      <header className="editorial-nav"><button className="editorial-brand" onClick={() => goTo("#top")} aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></button><nav aria-label="Primary navigation"><button onClick={() => goTo("#contexts")}>Contexts</button><button onClick={() => goTo("#principles")}>Principles</button><button onClick={() => goTo("#contact")}>Contact</button></nav><button className="nav-inquiry" onClick={requestDemo}>Make an enquiry <ArrowUpRight /></button></header>
 
-      <AnimatePresence>{menuOpen && <motion.div className="mobile-menu" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: .2 }}><button onClick={() => navTo("#contexts")}>Contexts <ArrowRight /></button><button onClick={() => navTo("#workflow")}>How it works <ArrowRight /></button><button onClick={() => navTo("#contact")}>Contact <ArrowRight /></button></motion.div>}</AnimatePresence>
+      <section className="editorial-hero" id="top"><div className="hero-rule rule-a" aria-hidden="true" /><div className="hero-rule rule-b" aria-hidden="true" /><div className="hero-copy"><p className="overline"><i /> CONNECTED CREDENTIAL SYSTEM</p><h1>Identity,<br /><em>considered.</em></h1><p>Smart Lanyard makes one familiar object more useful: a responsive credential for access, awareness and the everyday moments between.</p><div><button className="dark-button" onClick={requestDemo}>Request a demonstration <ArrowUpRight /></button><button className="text-button" onClick={() => goTo("#contexts")}>See the system <ArrowDownRight /></button></div></div><motion.figure className="hero-artifact" initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .65, ease: [0.23, 1, 0.32, 1] }}><div className="artifact-ground" aria-hidden="true" /><div className="artifact-frame" aria-hidden="true" /><img src={productImage} alt="Smart Lanyard connected identity credential" /><figcaption><span><i /> ACTIVE CREDENTIAL</span><span>DISPLAY / NFC / BLE</span></figcaption></motion.figure><div className="hero-caption"><span>DESIGNED FOR THE REAL WORLD</span><span>01 — 04</span></div></section>
 
-      <section className="orbit-hero" id="top">
-        <div className="hero-noise" aria-hidden="true" /><div className="hero-beam hero-beam-one" aria-hidden="true" /><div className="hero-beam hero-beam-two" aria-hidden="true" />
-        <div className="hero-copy-orbit"><motion.p className="status-line" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .12 }}><i /> SMART IDENTITY LAYER <span>LIVE</span></motion.p><motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .62, delay: .16, ease: [0.23, 1, 0.32, 1] }}>The card that<br /><em>keeps up.</em></motion.h1><motion.p className="hero-statement" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .58, delay: .28 }}>A living identity layer for the people, places and moments that move your organisation forward.</motion.p><motion.div className="hero-actions-orbit" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: .38 }}><button className="orbital-button" onClick={requestDemo}>Book a walkthrough <ArrowRight /></button><button className="ghost-action" onClick={() => navTo("#contexts")}>Explore contexts <ChevronDown /></button></motion.div></div>
-        <motion.div className="hero-card-stage" initial={{ opacity: 0, scale: .92, y: 50 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: .72, delay: .18, ease: [0.23, 1, 0.32, 1] }} onPointerMove={(event) => { const box = event.currentTarget.getBoundingClientRect(); x.set(event.clientX - box.left - box.width / 2); y.set(event.clientY - box.top - box.height / 2); }} onPointerLeave={() => { x.set(0); y.set(0); }}>
-          <div className="stage-ring ring-a" aria-hidden="true" /><div className="stage-ring ring-b" aria-hidden="true" /><div className="stage-axis axis-a" aria-hidden="true" /><div className="stage-axis axis-b" aria-hidden="true" />
-          <motion.div className="card-tilt" style={{ rotateX, rotateY, transformPerspective: 1000 }}><img src={productImage} alt="Smart Lanyard connected digital identity card" /></motion.div>
-          <span className="stage-label label-top"><i /> IDENTITY ACTIVE</span><span className="stage-label label-left">LIVE / NFC / BLE</span><span className="stage-label label-bottom">MOVE TO EXPLORE</span>
-        </motion.div>
-        <div className="hero-footnote"><span>SCROLL TO CONNECT</span><i /><span>01 / 04</span></div>
-      </section>
+      <section className="editorial-intro"><p>THE SAME OBJECT CAN HOLD IDENTITY, OPEN A DOOR, REFLECT A CHANGE OR REASSURE A FAMILY.</p><span>SMART LANYARD<br />IS A QUIETLY CAPABLE<br />LAYER FOR DAILY LIFE.</span></section>
 
-      <section className="signal-bridge"><div className="bridge-inner"><p>FROM A STATIC PASS</p><div className="bridge-stream" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div><p>TO A LIVE SYSTEM</p></div></section>
+      <section className="contexts" id="contexts"><div className="contexts-top"><p className="overline inverse"><i /> CONTEXT IS EVERYTHING</p><h2>Built for what<br />actually <em>happens.</em></h2><p>Start with the environment. Then shape the credential around its natural patterns of movement, access and communication.</p></div><div className="context-control" role="tablist"><button className={audience === "education" ? "active" : ""} onClick={() => setAudience("education")} role="tab" aria-selected={audience === "education"}><span>01</span> Education</button><button className={audience === "enterprise" ? "active" : ""} onClick={() => setAudience("enterprise")} role="tab" aria-selected={audience === "enterprise"}><span>02</span> Enterprise</button></div><AnimatePresence mode="wait"><motion.article className="context-sheet" key={audience} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: .32, ease: [0.23, 1, 0.32, 1] }}><div className="context-rail" aria-hidden="true"><i /><span>VERIFIED / LIVE</span></div><header><div className="context-symbol"><Icon /></div><p>{active.label}</p></header><div className="context-title"><h3>{active.title}</h3><p>{active.body}</p><button onClick={requestDemo}>Discuss this context <ArrowUpRight /></button></div><ul>{active.features.map((feature, index) => <li key={feature}><span>0{index + 1}</span><Check />{feature}</li>)}</ul><footer>{active.note}</footer></motion.article></AnimatePresence></section>
 
-      <section className="contexts-section" id="contexts">
-        <div className="contexts-intro"><p className="section-kicker"><Sparkles /> SELECT YOUR CONTEXT</p><h2>Designed around<br />the way people <em>move.</em></h2><p>Smart Lanyard adapts to different environments without asking people to adapt to another complex system.</p></div>
-        <div className="context-layout"><div className="context-tabs" role="tablist"><button className={context === "students" ? "active" : ""} onClick={() => setContext("students")} role="tab" aria-selected={context === "students"}><span>01</span><GraduationCap /> Students</button><button className={context === "companies" ? "active" : ""} onClick={() => setContext("companies")} role="tab" aria-selected={context === "companies"}><span>02</span><Building2 /> Companies</button></div><AnimatePresence mode="wait"><motion.div className="context-display" key={context} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: .32, ease: [0.23, 1, 0.32, 1] }}><aside><p>{active.eyebrow}</p><h3>{active.title}</h3><span>{active.body}</span><button onClick={requestDemo}>Plan a rollout <ArrowRight /></button></aside><div className="context-highlights">{active.highlights.map((item, index) => { const Icon = item.icon; return <motion.article key={item.name} initial={{ opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .07 + index * .07 }}><div><span>0{index + 1}</span><Icon /></div><h4>{item.name}</h4><p>{item.text}</p><b>STATUS READY</b></motion.article>; })}</div></motion.div></AnimatePresence></div>
-      </section>
+      <section className="principles" id="principles"><div className="principles-head"><p className="overline"><i /> WHY THE OBJECT MATTERS</p><h2>Technology that<br />knows its <em>place.</em></h2></div><div className="principles-list">{details.map((detail, index) => <motion.article key={detail.index} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .4 }} transition={{ delay: index * .08, duration: .36 }}><span>{detail.index}</span><h3>{detail.title}</h3><p>{detail.copy}</p><ChevronRight /></motion.article>)}</div></section>
 
-      <section className="workflow-section" id="workflow"><div className="workflow-head"><p className="section-kicker inverse"><Orbit /> SIGNAL FLOW</p><h2>Set it once.<br /><em>Let it evolve.</em></h2></div><div className="workflow-grid">{workflow.map((step, index) => <motion.article key={step.num} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .4 }} transition={{ delay: index * .08, duration: .42 }}><span>{step.num}</span><div className="workflow-node"><i /><b /></div><h3>{step.label}</h3><p>{step.copy}</p></motion.article>)}</div><p className="workflow-caption">A single control layer. A clearer everyday experience.</p></section>
+      <section className="editorial-proof"><div className="proof-statement"><p className="overline inverse"><i /> A CLEARER OPERATING LAYER</p><h2>Designed for<br />people first.<br /><em>Built for control.</em></h2></div><div className="proof-facts"><article><ShieldCheck /><div><b>Secure by design</b><span>Dynamic identity and managed access remain under your control.</span></div></article><article><Sparkles /><div><b>Simple in use</b><span>The experience is visible, familiar and easy to carry through a day.</span></div></article></div></section>
 
-      <section className="proof-section"><div className="proof-copy"><p className="section-kicker"><Shield /> BUILT TO BE TRUSTED</p><h2>Visible when<br />it helps. Quiet<br />when it doesn’t.</h2><p>Every interaction is made to feel obvious to the person using it—and accountable to the organisation supporting it.</p><div><span><Check /> Dynamic display</span><span><Check /> Managed access</span><span><Check /> Live updates</span></div></div><div className="proof-orbit" aria-hidden="true"><div className="proof-center"><Fingerprint /></div><span className="proof-pin pin-one" /><span className="proof-pin pin-two" /><span className="proof-pin pin-three" /><i>CONTROLLED<br />CONNECTION</i></div></section>
+      <section className="editorial-final" id="contact"><p className="overline"><i /> LET’S START WITH ONE CONTEXT</p><h2>Make the everyday<br /><em>work more intelligently.</em></h2><p>We’ll help you identify the first moment Smart Lanyard can improve—and build the right credential experience around it.</p><button className="dark-button" onClick={requestDemo}>Talk to our team <ArrowUpRight /></button></section>
 
-      <section className="orbit-final" id="contact"><div className="final-radial" aria-hidden="true" /><p className="section-kicker inverse"><i /> THE NEXT MOVE</p><h2>Give every day<br />a <em>clearer signal.</em></h2><p>See how Smart Lanyard can bring your identity, access and communication layer into one connected experience.</p><button className="orbital-button" onClick={requestDemo}>Start a conversation <ArrowRight /></button></section>
-
-      <footer className="orbit-footer"><div className="orbit-brand"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></div><span>IDENTITY / ACCESS / AWARENESS</span><b>© 2026</b></footer>
+      <footer className="editorial-footer"><div className="editorial-brand"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></div><span>IDENTITY / ACCESS / AWARENESS</span><b>© 2026</b></footer>
     </main>
   );
 }
