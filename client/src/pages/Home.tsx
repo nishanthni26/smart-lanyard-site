@@ -3,7 +3,7 @@
  * controlled Signal Cyan, editorial asymmetry, and a suspended credential motif.
  */
 import { Button } from "@/components/ui/button";
-import { AnimatePresence, motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -94,6 +94,13 @@ const displayModes = [
   { label: "FACTORY MODE", primary: "Line A3", secondary: "Safety zone cleared", signal: "SITE READY" },
 ];
 
+const credentialMoments = [
+  { code: "01", eyebrow: "VERIFIED IDENTITY", title: "Know who is present.", copy: "A live, readable profile makes every identity easy to verify at a glance.", icon: ContactRound },
+  { code: "02", eyebrow: "SECURE ACCESS", title: "Open the right doors.", copy: "Permissions travel with the card, so access stays simple and controlled.", icon: Fingerprint },
+  { code: "03", eyebrow: "LIVE VISIBILITY", title: "See movement with context.", copy: "Clear presence signals help teams respond to arrivals, transitions and exceptions.", icon: MapPin },
+  { code: "04", eyebrow: "SAFETY READY", title: "Send a signal when it matters.", copy: "An immediate SOS connection brings the right people into the moment faster.", icon: CircleAlert },
+];
+
 const heroImage = "/manus-storage/smart-lanyard-hero_60ef3c57.jpg";
 const lanyardImage = "/manus-storage/smart-lanyard-product_fdf29ba0.png";
 const detailImage = "/manus-storage/smart-lanyard-detail_f550f9ff.jpg";
@@ -122,10 +129,23 @@ function Magnetic({ children }: { children: ReactNode }) {
   );
 }
 
+function CredentialCard({ variant = "hero" }: { variant?: "hero" | "zoom" }) {
+  return (
+    <div className={`credential-card credential-card-${variant}`}>
+      <div className="credential-topline"><span>SMART LANYARD</span><i /></div>
+      <div className="credential-profile"><div className="credential-avatar">JW</div><div><strong>James Walker</strong><small>Employee · SL-0114</small></div></div>
+      <div className="credential-divider" />
+      <div className="credential-meta"><span>ACCESS</span><b>ACTIVE</b></div>
+      <div className="credential-meta"><span>LOCATION</span><b>HQ · Level 5</b></div>
+      <div className="credential-bottom"><span>IDENTITY VERIFIED</span><i /></div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [audience, setAudience] = useState<Audience>("students");
   const [scrolled, setScrolled] = useState(false);
-  const [displayMode, setDisplayMode] = useState(0);
+  const [revealStage, setRevealStage] = useState(0);
   const revealRef = useRef<HTMLElement>(null);
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
@@ -136,24 +156,22 @@ export default function Home() {
     offset: ["start end", "end start"],
   });
   const productY = useTransform(scrollYProgress, [0.08, 0.45, 0.82], [110, -15, 10]);
-  const productScale = useTransform(scrollYProgress, [0.08, 0.45, 0.82], [0.72, 1.06, 0.96]);
+  const productScale = useTransform(scrollYProgress, [0.08, 0.4, 0.82], [0.58, 1.48, 1.12]);
   const productRotate = useTransform(scrollYProgress, [0.08, 0.45, 0.82], [-7, 1.5, -1]);
   const activeData = audienceData[audience];
   const AudienceIcon = activeData.icon;
-  const activeDisplay = displayModes[displayMode];
+  const activeMoment = credentialMoments[revealStage];
+  const ActiveMomentIcon = activeMoment.icon;
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setRevealStage(Math.min(3, Math.max(0, Math.floor(latest * 4.7))));
+  });
 
   useEffect(() => {
     const updateScrollState = () => setScrolled(window.scrollY > 28);
     updateScrollState();
     window.addEventListener("scroll", updateScrollState, { passive: true });
     return () => window.removeEventListener("scroll", updateScrollState);
-  }, []);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setDisplayMode((currentMode) => (currentMode + 1) % displayModes.length);
-    }, 3800);
-    return () => window.clearInterval(timer);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -206,35 +224,15 @@ export default function Home() {
             <button className="text-cta" onClick={() => scrollTo("#features")}>Explore the system <ChevronRight aria-hidden="true" /></button>
           </div>
         </div>
-        <motion.div
-          className="hero-display-demo"
-          aria-live="polite"
-          style={{ rotateX: displayRotateX, rotateY: displayRotateY, transformPerspective: 900 }}
-          animate={{ y: [0, -8, 0] }}
-          transition={{ y: { duration: 4.7, repeat: Infinity, ease: "easeInOut" } }}
-        >
-          <div className="display-topline"><span>SL / E-PAPER</span><i /></div>
-          <AnimatePresence mode="wait">
-            <motion.div
-              className="display-screen"
-              key={activeDisplay.label}
-              initial={{ opacity: 0, filter: "blur(3px)", y: 4 }}
-              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              exit={{ opacity: 0, filter: "blur(2px)", y: -4 }}
-              transition={{ duration: 0.32, ease: [0.23, 1, 0.32, 1] }}
-            >
-              <span>{activeDisplay.label}</span>
-              <strong>{activeDisplay.primary}</strong>
-              <small>{activeDisplay.secondary}</small>
-            </motion.div>
-          </AnimatePresence>
-          <div className="display-bottomline"><i /><span>{activeDisplay.signal}</span></div>
-        </motion.div>
         <div className="hero-person-wrap" aria-hidden="true">
           <img src={heroImage} alt="" className="hero-person" />
           <div className="person-shadow" />
           <div className="person-scanline" />
         </div>
+        <motion.div className="wearer-id-wrap" aria-label="James Walker, employee ID SL-0114, access active, HQ level 5" style={{ rotateX: displayRotateX, rotateY: displayRotateY, transformPerspective: 900 }} animate={{ y: [0, -5, 0] }} transition={{ y: { duration: 4.7, repeat: Infinity, ease: "easeInOut" } }}>
+          <CredentialCard />
+          <div className="wearer-id-label"><span>WEARER / LIVE</span><strong>JAMES WALKER</strong><small>ACCESS ACTIVE</small></div>
+        </motion.div>
         <div className="hero-meta hero-meta-left"><span>LIVE IDENTITY</span><b>01 — 04</b></div>
         <div className="hero-meta hero-meta-right"><span>SCROLL TO REVEAL</span><ArrowDownRight aria-hidden="true" /></div>
       </section>
@@ -248,17 +246,22 @@ export default function Home() {
           <div className="reveal-coordinates" aria-hidden="true"><span>AXIS / 49.12</span><span>LINK / SECURE</span><span>NODE / 03</span></div>
           <div className="reveal-technical reveal-technical-left"><span>CONNECTED</span><i /><span>SECURE</span></div>
           <div className="reveal-technical reveal-technical-right"><span>IDENTITY</span><i /><span>VISIBLE</span></div>
-          <motion.div
-            className="product-stage"
-            style={{ y: productY, scale: productScale, rotate: productRotate }}
-          >
+          <motion.div className="product-stage credential-zoom-stage" style={{ y: productY, scale: productScale, rotate: productRotate }}>
             <div className="signal-halo" />
             <div className="product-orbit product-orbit-one" />
             <div className="product-orbit product-orbit-two" />
-            <img src={lanyardImage} alt="Smart Lanyard ID card" className="lanyard-product" />
-            <span className="product-cue product-cue-one"><i />ACTIVE SIGNAL</span>
-            <span className="product-cue product-cue-two"><i />SECURE ID</span>
+            <div className="zoom-lanyard-loop" aria-hidden="true" />
+            <CredentialCard variant="zoom" />
+            <span className="product-cue product-cue-one"><i />JAMES WALKER / SL-0114</span>
+            <span className="product-cue product-cue-two"><i />ACCESS ACTIVE</span>
           </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.div className="zoom-feature-callout" key={activeMoment.code} initial={{ opacity: 0, x: 18, y: 8 }} animate={{ opacity: 1, x: 0, y: 0 }} exit={{ opacity: 0, x: -10, y: -8 }} transition={{ duration: 0.26, ease: [0.23, 1, 0.32, 1] }}>
+              <div className="zoom-feature-icon"><ActiveMomentIcon aria-hidden="true" /></div>
+              <div><p>{activeMoment.eyebrow} <b>{activeMoment.code}/04</b></p><h3>{activeMoment.title}</h3><span>{activeMoment.copy}</span></div>
+            </motion.div>
+          </AnimatePresence>
+          <div className="zoom-stage-progress" aria-hidden="true">{credentialMoments.map((moment, index) => <i key={moment.code} className={index <= revealStage ? "active" : ""} />)}</div>
           <div className="reveal-title-wrap">
             <p className="eyebrow centered-eyebrow">The credential, rethought</p>
             <h2>Meet the signal<br />that stays with you.</h2>

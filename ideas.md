@@ -97,3 +97,5 @@ The mark is a **suspended credential loop**: a short cyan lanyard line passes th
 - The only pale surface is a restrained blueprint/verification insert; near-black cinematic graphite remains the dominant atmosphere from hero through CTA.
 - Product-reveal moments show the credential as a physical suspended object with cyan edge light, a controlled signal halo, calibration marks, and tactile material detail.
 - Reusable information areas read as secure operational panels with fine rules, coordinates, and status indicators rather than conventional SaaS tabs or generic icon cards.
+- Signal Cyan is treated as active light—reserved for credential edges, status dots, active controls, small numerals, and live-system signals rather than broad display text.
+- The credential is the dominant physical object in every product reveal, framed by its woven loop, cyan edge lighting, and calibration geometry.
