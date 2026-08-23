@@ -146,6 +146,12 @@
 - [x] Add the supplied AI features, product platform strengths, and customer pain points without overwhelming the page.
 - [x] Validate the complete portfolio content across desktop/mobile and save a delivery checkpoint.
 
+## Implementation-Specific Copy Revision
+
+- [x] Add the supplied distinctions between on-card, in-app, and dashboard capabilities to the Education and Enterprise views.
+- [x] Refine platform benefits, pain points, and CTA copy with the supplied direct product language.
+- [x] Add the supplied roadmap transparency note and validate desktop/mobile content presentation.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
