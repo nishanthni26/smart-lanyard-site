@@ -15,6 +15,13 @@
 - [x] Apply the reference-inspired front face consistently to the wearer credential and scroll-zoom reveal.
 - [x] Validate the revised credential on desktop and mobile, then save a delivery checkpoint.
 
+## Credential Simplification Revision
+
+- [x] Reduce the visual weight of the strap, clip, frame, and identity content while retaining the physical-card reference cues.
+- [x] Rebalance the wearer credential so it reads clearly without competing with the hero person or headline.
+- [x] Simplify the zoom-card treatment while preserving the feature-reveal interaction.
+- [x] Validate desktop and mobile composition, then save a refined delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

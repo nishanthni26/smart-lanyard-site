@@ -100,3 +100,4 @@ The mark is a **suspended credential loop**: a short cyan lanyard line passes th
 - Signal Cyan is treated as active light—reserved for credential edges, status dots, active controls, small numerals, and live-system signals rather than broad display text.
 - The credential is the dominant physical object in every product reveal, framed by its woven loop, cyan edge lighting, and calibration geometry.
 - The credential silhouette, woven strap texture, or graphite edge detail reappears throughout the page so the story remains a physical-product film rather than a software dashboard.
+- The reference-inspired card is deliberately restrained: a slim blue strap, compact mount, charcoal frame, portrait window, and a minimal identity stack; it must never overpower the wearer or headline.
