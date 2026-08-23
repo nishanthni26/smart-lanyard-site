@@ -4,6 +4,7 @@
 import { ArrowLeft, ArrowRight, BadgeCheck, Building2, GraduationCap, HelpCircle, ShieldCheck } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import ThemeToggle from "@/components/ThemeToggle";
+import SiteFooter from "@/components/SiteFooter";
 import "../faq.css";
 
 const brandMark = "/manus-storage/smart-lanyard-loop-logo_e44db5b8.png";
@@ -54,6 +55,6 @@ export default function Faq() {
 
     <section className="faq-audiences"><div><p className="faq-eyebrow"><i /> BUILT AROUND PEOPLE</p><h2>For schools.<br /><em>For workplaces.</em></h2></div><div className="faq-audience-cards"><article><GraduationCap /><h3>Questions from education teams</h3><p>Talk through student identity, attendance, family updates and campus access.</p><a href="/#solutions">Explore education solutions <ArrowRight /></a></article><article><Building2 /><h3>Questions from workplace teams</h3><p>Talk through employee identity, access, administration and safety workflows.</p><a href="/#solutions">Explore workplace solutions <ArrowRight /></a></article></div></section>
 
-    <footer className="faq-footer"><a className="faq-brand" href="/"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></a><a className="faq-demo-link" href="/demo">Request a demo <ArrowRight /></a><span>Education · Enterprise · Healthcare · Manufacturing · Government · Hospitality</span><b>© 2026 Smart Lanyard</b></footer>
+    <SiteFooter />
   </main>;
 }

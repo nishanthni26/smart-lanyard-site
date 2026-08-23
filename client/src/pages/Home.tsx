@@ -2,8 +2,9 @@
  * Friendly Daylight content direction: explain the connected card first, then show exactly
  * where each feature appears—on the card, in the companion app, or in the admin dashboard. */
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
-import { ArrowRight, BadgeCheck, BellRing, Bluetooth, BookOpenCheck, Building2, CalendarCheck2, Check, Cloud, DoorOpen, GraduationCap, HeartPulse, KeyRound, LayoutDashboard, MapPin, Nfc, QrCode, ShieldCheck, ShieldPlus, Smartphone, UserRoundCheck, UsersRound, Zap } from "lucide-react";
+import { BadgeCheck, BellRing, Bluetooth, BookOpenCheck, Building2, CalendarCheck2, Check, Cloud, DoorOpen, GraduationCap, HeartPulse, KeyRound, LayoutDashboard, MapPin, Nfc, QrCode, ShieldCheck, ShieldPlus, Smartphone, UserRoundCheck, UsersRound, Zap } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import SiteFooter from "@/components/SiteFooter";
 import { useState } from "react";
 import "../friendly.css";
 
@@ -98,6 +99,6 @@ export default function Home() {
     <section className="friendly-platform" id="platform"><div className="friendly-section-title"><p className="friendly-eyebrow"><i /> WHY CHOOSE SMART LANYARD?</p><h2>One card.<br /><em>A complete platform.</em></h2><p className="friendly-section-copy">The card, cloud platform, app and dashboard work together, so each feature is easier to use and manage.</p></div><div className="friendly-platform-grid">{platformFeatures.map((feature, index) => { const Icon = feature.icon; return <motion.article key={feature.title} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }} transition={{ delay: index * .035 }}><Icon /><div><strong>{feature.title}</strong><span>{feature.text}</span></div></motion.article>; })}</div></section>
     <section className="friendly-problems"><div className="friendly-problems-copy"><p className="friendly-eyebrow"><i /> PAIN POINTS WE SOLVE</p><h2>Less admin.<br /><em>More clarity.</em></h2><p>Smart Lanyard replaces disconnected cards, messages and paper processes with one digital identity experience.</p></div><AnimatePresence mode="wait"><motion.ul key={audience} className="friendly-problem-list" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: .22 }}>{data.painPoints.map(point => <li key={point}><Check />{point}</li>)}</motion.ul></AnimatePresence></section>
     <section className="friendly-roadmap"><div><p className="friendly-eyebrow"><i /> PRODUCT ROADMAP</p><h2>Clear about<br /><em>what is live today.</em></h2></div><div><p><strong>Live today:</strong> Smart Lanyard supports identity, access, attendance and safety alerts, alongside a fully functional companion app and admin dashboard.</p><p><strong>Rolling out next:</strong> deeper AI insights, richer recommendations and selected access integrations—including payments and third-party building systems—are being introduced for future customers.</p></div></section>
-    <footer className="friendly-footer"><div className="friendly-brand"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></div><a className="friendly-demo-link" href="/demo">Request a demo <ArrowRight /></a><span>Education · Enterprise · Healthcare · Manufacturing · Government · Hospitality</span><b>© 2026 Smart Lanyard</b></footer>
+    <SiteFooter />
   </main></MotionConfig>;
 }

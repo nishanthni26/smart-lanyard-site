@@ -1,6 +1,7 @@
 import { ArrowLeft, CheckCircle2, Loader2, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
+import SiteFooter from "@/components/SiteFooter";
 import { trpc } from "@/lib/trpc";
 import "../demo.css";
 
@@ -58,6 +59,6 @@ export default function Demo() {
       </div>
     </section>
 
-    <footer className="demo-footer"><a className="demo-brand" href="/"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></a><span>Education · Enterprise · Healthcare · Manufacturing · Government · Hospitality</span><b>© 2026 Smart Lanyard</b></footer>
+    <SiteFooter />
   </main>;
 }

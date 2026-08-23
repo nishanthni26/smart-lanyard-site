@@ -207,6 +207,12 @@
 - [x] Add a Demo Request page with a secure form for contact details and organisation needs.
 - [x] Store submitted demo requests securely and validate the form submission flow across desktop/mobile.
 
+## Site Quality and Footer Upgrade
+
+- [x] Audit the homepage, FAQ, and Demo Request routes for navigation, footer consistency, and form-flow readiness.
+- [x] Replace compact footers with a complete responsive footer including navigation, solution links, and the single demo request action.
+- [x] Validate all pages and responsive footer layouts, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
