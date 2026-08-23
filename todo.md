@@ -225,6 +225,18 @@
 - [x] Add refined interactive feedback to team cards, solution cards, and primary buttons.
 - [x] Validate desktop/mobile animation quality and reduced-motion behavior, then save a delivery checkpoint.
 
+## Remove Less Admin Section
+
+- [x] Remove the “Less admin. More clarity.” pain-points section from the homepage.
+- [x] Rebalance the spacing between the Team and roadmap sections after removal.
+- [x] Validate desktop/mobile page flow and save a delivery checkpoint.
+
+## Comprehensive Quality Review
+
+- [x] Audit homepage, FAQ, Demo Request, footer links, theme toggle, and responsive layouts for visual or functional issues.
+- [x] Correct any discovered content, layout, interaction, accessibility, or reliability issues.
+- [x] Validate all routes with tests and desktop/mobile light/dark checks, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

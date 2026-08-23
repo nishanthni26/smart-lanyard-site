@@ -12,7 +12,7 @@ export default function SiteFooter() {
         <a className="site-footer-demo" href="/demo">Request a demo <ArrowRight /></a>
       </div>
       <nav className="site-footer-links" aria-label="Footer navigation">
-        <div><span>EXPLORE</span><a href="/#product">The product</a><a href="/#platform">Why it helps</a><a href="/faq">Frequently asked questions</a></div>
+        <div><span>EXPLORE</span><a href="/#product">The product</a><a href="/#platform">Why it helps</a><a href="/faq">FAQ</a></div>
         <div><span>SOLUTIONS</span><a href="/#solutions">For schools</a><a href="/#solutions">For workplaces</a><a href="/demo">Request a demo</a></div>
       </nav>
     </div>
