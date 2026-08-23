@@ -8,6 +8,13 @@
 - [x] Reveal key lanyard capabilities around the zoomed credential through sequenced motion and readable feature callouts.
 - [x] Recheck desktop and mobile hierarchy, then save a revised delivery checkpoint.
 
+## Physical Credential Reference Revision
+
+- [x] Rebuild the credential face with the reference’s heavy charcoal frame, portrait window, and high-legibility identity stack.
+- [x] Add a blue woven lanyard strap, mechanical clip, and top card mount for a more believable physical silhouette.
+- [x] Apply the reference-inspired front face consistently to the wearer credential and scroll-zoom reveal.
+- [x] Validate the revised credential on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

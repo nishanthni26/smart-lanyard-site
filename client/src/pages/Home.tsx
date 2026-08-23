@@ -1,6 +1,6 @@
 /**
  * Signal Noir design system: cinematic techno-minimalism with near-black fields,
- * controlled Signal Cyan, editorial asymmetry, and a suspended credential motif.
+ * controlled Signal Cyan, editorial asymmetry, and a physical lanyard credential motif.
  */
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
@@ -131,13 +131,17 @@ function Magnetic({ children }: { children: ReactNode }) {
 
 function CredentialCard({ variant = "hero" }: { variant?: "hero" | "zoom" }) {
   return (
-    <div className={`credential-card credential-card-${variant}`}>
-      <div className="credential-topline"><span>SMART LANYARD</span><i /></div>
-      <div className="credential-profile"><div className="credential-avatar">JW</div><div><strong>James Walker</strong><small>Employee · SL-0114</small></div></div>
-      <div className="credential-divider" />
-      <div className="credential-meta"><span>ACCESS</span><b>ACTIVE</b></div>
-      <div className="credential-meta"><span>LOCATION</span><b>HQ · Level 5</b></div>
-      <div className="credential-bottom"><span>IDENTITY VERIFIED</span><i /></div>
+    <div className={`credential-rig credential-rig-${variant}`}>
+      <div className="credential-strap" aria-hidden="true"><i /><i /></div>
+      <div className="credential-clip" aria-hidden="true"><i /></div>
+      <div className={`credential-card credential-card-${variant}`}>
+        <div className="credential-topline"><span>SMART LANYARD</span><i /></div>
+        <div className="credential-photo"><img src={heroImage} alt="" /></div>
+        <div className="credential-identity"><strong>James Walker</strong><small>Employee ID: SL-0114</small><small>Role: Field Operations</small></div>
+        <div className="credential-divider" />
+        <div className="credential-meta"><span>ISSUED</span><b>24 AUG 2026</b></div>
+        <div className="credential-bottom"><span>IDENTITY VERIFIED</span><i /></div>
+      </div>
     </div>
   );
 }
@@ -270,6 +274,7 @@ export default function Home() {
       </section>
 
       <motion.section className="audience-section" id="features" aria-labelledby="audience-title" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}>
+        <div className="audience-credential-silhouette" aria-hidden="true"><CredentialCard /></div>
         <div className="section-rail"><span>02</span><i /><span>WHO IT SERVES</span></div>
         <div className="audience-intro">
           <p className="eyebrow">One wearable system, tailored context</p>
