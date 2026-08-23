@@ -291,6 +291,13 @@
 - [x] Confirmed the enlarged hero card is clear and the product section contains only the live-status device at desktop and mobile breakpoints.
 - [x] Verify desktop and mobile layouts, then save a delivery checkpoint.
 
+## Centered Hanging Hero Card
+
+- [x] Move the hero identity card into a centered, enlarged hanging position visually connected to the Smart Lanyard wording.
+- [x] Add a gentle reduced-motion-safe hanging swing to the identity card without obscuring the hero copy.
+- [x] Confirmed the enlarged hanging card and title connection remain clear at desktop and mobile breakpoints.
+- [x] Verify the animated hero on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
