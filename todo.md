@@ -182,6 +182,18 @@
 - [x] Link the FAQ page from the site navigation and ensure a simple return path to the product page.
 - [x] Validate desktop/mobile FAQ interactions and save a delivery checkpoint.
 
+## Dark Mode
+
+- [x] Review the existing theme context and establish a coherent dark-mode color system.
+- [x] Add a persistent theme toggle to the main website and FAQ navigation.
+- [x] Apply and validate accessible dark-mode styling across desktop and mobile pages, then save a delivery checkpoint.
+
+## Plain-Language Content Pass
+
+- [x] Replace technical wording in the key visitor-facing product explanations with everyday language.
+- [x] Make the core product, school, workplace, safety, and FAQ messages easy to understand at a glance.
+- [x] Validate the simplified language together with both visual themes before publishing.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

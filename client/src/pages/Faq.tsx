@@ -3,16 +3,17 @@
  * The page prioritizes everyday questions from school and workplace decision-makers. */
 import { ArrowLeft, ArrowRight, BadgeCheck, Building2, GraduationCap, HelpCircle, ShieldCheck } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import ThemeToggle from "@/components/ThemeToggle";
 import "../faq.css";
 
 const brandMark = "/manus-storage/smart-lanyard-loop-logo_e44db5b8.png";
 const cardImage = "/manus-storage/smart-lanyard-transparent_b686992c.png";
 
 const questions = [
-  { id: "what", group: "Getting started", question: "What is Smart Lanyard?", answer: "Smart Lanyard is a connected ID card for schools and workplaces. It combines a live e-paper display, NFC access, QR authentication, a companion app and an admin dashboard in one familiar wearable card." },
-  { id: "who", group: "Getting started", question: "Who is Smart Lanyard for?", answer: "It is designed for schools, colleges and workplaces that want to bring identity, attendance, access, alerts and daily updates into one easier-to-manage system." },
-  { id: "card", group: "The card", question: "What information can appear on the card?", answer: "The e-paper card can show a live identity, dynamic QR code, NFC-enabled pass and short time-sensitive alerts. The exact setup is tailored to the organisation." },
-  { id: "app", group: "The card", question: "What is handled in the app or dashboard?", answer: "The companion app provides deeper details such as timetables, reminders, announcements and notifications. The admin dashboard helps staff manage cards, access, alerts and organisation-wide settings." },
+  { id: "what", group: "Getting started", question: "What is Smart Lanyard?", answer: "It is an ID card you can wear at school or work. It can show who you are, help you enter the right places and send useful updates." },
+  { id: "who", group: "Getting started", question: "Who is Smart Lanyard for?", answer: "It is for schools and workplaces that want a simpler way to manage ID cards, entry, attendance, updates and safety." },
+  { id: "card", group: "The card", question: "What can the card do?", answer: "It can show your ID, let you tap into approved places, help with attendance and display short alerts when needed." },
+  { id: "app", group: "The card", question: "What are the app and dashboard for?", answer: "The app shows more detail, such as schedules and reminders. The dashboard helps staff manage cards, entry rules and updates." },
   { id: "school", group: "For schools", question: "How can schools use Smart Lanyard?", answer: "Schools can use it for student identity, tap-and-go attendance, campus access, timetable updates, homework notices, parent updates and one-touch SOS support." },
   { id: "parents", group: "For schools", question: "How do parents receive updates?", answer: "Schools can send relevant entry, exit, attendance, homework, exam and emergency notifications through the companion app, so families stay informed without extra paper notices." },
   { id: "work", group: "For workplaces", question: "How can workplaces use Smart Lanyard?", answer: "Workplaces can use it for employee identity, building and room access, visitor passes, HR notifications, meeting reminders, safety alerts and everyday workplace information." },
@@ -26,22 +27,22 @@ export default function Faq() {
   return <main className="faq-page">
     <header className="faq-nav">
       <a className="faq-brand" href="/" aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></a>
-      <nav aria-label="Primary navigation"><a href="/#product">The product</a><a href="/#solutions">Solutions</a><a href="/#platform">Platform</a><a className="active" href="/faq">FAQ</a></nav>
-      <a className="faq-nav-cta" href="/#contact">Book a pilot <ArrowRight /></a>
+      <nav aria-label="Primary navigation"><a href="/#product">The product</a><a href="/#solutions">Who it helps</a><a href="/#platform">Why it helps</a><a className="active" href="/faq">FAQ</a></nav>
+      <ThemeToggle /><a className="faq-nav-cta" href="/#contact">Book a demo <ArrowRight /></a>
     </header>
 
     <section className="faq-hero">
       <div className="faq-orb faq-orb-one" aria-hidden="true" /><div className="faq-orb faq-orb-two" aria-hidden="true" />
       <p className="faq-eyebrow"><i /> FREQUENTLY ASKED QUESTIONS</p>
       <h1>Clear answers<br />for <em>everyday questions.</em></h1>
-      <p>Everything you need to know about bringing identity, access, updates and safety into one connected card.</p>
+      <p>Simple answers about a card that helps people identify themselves, enter the right places and stay informed.</p>
       <a className="faq-back" href="/"><ArrowLeft /> Back to Smart Lanyard</a>
       <figure className="faq-card-study"><img src={cardImage} alt="Smart Lanyard connected ID card" /><figcaption>Wear it. Tap it. Stay informed.</figcaption></figure>
     </section>
 
     <section className="faq-guide" aria-label="FAQ overview">
-      <div className="faq-guide-copy"><p className="faq-eyebrow"><i /> START HERE</p><h2>One product.<br /><em>Three simple parts.</em></h2><p>Smart Lanyard works as a connected card, companion app and organisation dashboard. Each part shows the right information to the right person.</p><span className="faq-use-line">Wear it for identity. Tap it for access. Check the app for what’s next.</span></div>
-      <div className="faq-guide-list"><article><BadgeCheck /><div><strong>The card</strong><span>Identity, short alerts, QR and NFC-enabled access.</span></div></article><article><HelpCircle /><div><strong>The app</strong><span>Updates, schedules, reminders and deeper information.</span></div></article><article><ShieldCheck /><div><strong>The dashboard</strong><span>Settings, access, notifications and organisation control.</span></div></article></div>
+      <div className="faq-guide-copy"><p className="faq-eyebrow"><i /> START HERE</p><h2>One card.<br /><em>Three simple parts.</em></h2><p>The card is what people wear. The app shows useful details. The dashboard helps staff keep everything in order.</p><span className="faq-use-line">Wear it for ID. Tap it to enter. Check the app for what’s next.</span></div>
+      <div className="faq-guide-list"><article><BadgeCheck /><div><strong>The card</strong><span>Your ID, quick alerts and entry to approved places.</span></div></article><article><HelpCircle /><div><strong>The app</strong><span>Schedules, updates and reminders for each person.</span></div></article><article><ShieldCheck /><div><strong>The dashboard</strong><span>A simple place for staff to manage cards and updates.</span></div></article></div>
     </section>
 
     <section className="faq-content">
