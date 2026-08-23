@@ -122,6 +122,12 @@
 - [x] Add the requested four-step process and final Request a Demo / Contact CTA.
 - [x] Validate all five sections, interactions, and mobile layout before saving a delivery checkpoint.
 
+## Friendly Simplified Redesign
+
+- [x] Replace the dramatic cinematic presentation with a warm, simple, approachable visual system.
+- [x] Simplify copy, composition, and motion while retaining the Students/Companies feature toggle.
+- [x] Validate desktop/mobile clarity and save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
