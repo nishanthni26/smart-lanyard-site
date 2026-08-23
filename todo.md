@@ -164,6 +164,12 @@
 - [x] Apply the requested image replacement, visibility fixes, and removal of unnecessary product-detail text.
 - [x] Verify desktop/mobile presentation and create a delivery checkpoint.
 
+## Hero Background Refresh
+
+- [x] Replace the dark hero background image with a brighter, friendlier wearer visual.
+- [x] Ensure the new image keeps the Smart Lanyard clearly visible without obscuring hero copy.
+- [x] Validate the new hero background on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

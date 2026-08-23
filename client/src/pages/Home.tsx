@@ -12,7 +12,7 @@ type Surface = "On Card" | "In App" | "Dashboard";
 type Capability = { name: string; surfaces: Surface[]; note?: string };
 type SolutionModule = { title: string; copy: string; items: Capability[]; icon: typeof GraduationCap };
 
-const heroImage = "/manus-storage/smart-lanyard-wearer-hero_d0824279.jpg";
+const heroImage = "/manus-storage/smart-lanyard-friendly-hero-replacement_a1a3c0c8.jpg";
 const cardImage = "/manus-storage/smart-lanyard-transparent_b686992c.png";
 const brandMark = "/manus-storage/smart-lanyard-loop-logo_e44db5b8.png";
 
