@@ -134,6 +134,18 @@
 - [x] Consolidate detailed feature cards into fewer, clearer benefit groups for Students and Companies.
 - [x] Make the primary action and contact path unambiguous, then validate desktop/mobile comprehension.
 
+## Product-Specific Copy Rewrite
+
+- [ ] Replace broad marketing language with a concise explanation of the Smart Lanyard product and its core use cases.
+- [ ] Make school and company outcomes concrete while retaining the required feature details.
+- [ ] Validate the rewritten copy at desktop and mobile breakpoints, then save a delivery checkpoint.
+
+## Supplied Product Portfolio Integration
+
+- [x] Present the supplied Education and Enterprise capability categories in an easy-to-understand switched view.
+- [x] Add the supplied AI features, product platform strengths, and customer pain points without overwhelming the page.
+- [x] Validate the complete portfolio content across desktop/mobile and save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
