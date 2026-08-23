@@ -152,6 +152,12 @@
 - [x] Refine platform benefits, pain points, and CTA copy with the supplied direct product language.
 - [x] Add the supplied roadmap transparency note and validate desktop/mobile content presentation.
 
+## Mobile Typography Follow-up
+
+- [x] Remove the unwanted “From connected card to everyday service” process wording.
+- [x] Increase undersized mobile text across navigation, feature labels, supporting copy, and actions.
+- [x] Validate the revised mobile reading experience and save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
