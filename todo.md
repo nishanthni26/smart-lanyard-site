@@ -49,6 +49,13 @@
 - [x] Add a focused value proposition and pain-point section using the supplied content.
 - [x] Verify desktop/mobile hierarchy and interactive behavior, then save a delivery checkpoint.
 
+## Typography and Product Motion Refinement
+
+- [x] Replace the current web typography with a more professional display and text system.
+- [x] Integrate the supplied transparent lanyard image as the primary product asset.
+- [x] Add a smooth scroll-led credential motion sequence inspired by the supplied reference animation.
+- [x] Verify desktop/mobile typography and motion, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

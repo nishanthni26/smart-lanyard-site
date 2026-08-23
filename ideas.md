@@ -111,3 +111,7 @@ The closing section stays within this system: mineral paper carries the final me
 ## Modern Solutions Direction
 
 The active direction is a **clean contemporary enterprise interface**. It uses neutral white and mist surfaces, ink-navy depth, one electric-indigo system color, and a mint status indicator. Content is organized around real solution categories—Education and Enterprise—with a single interactive view for each, preventing long repeated lists. Product imagery is treated as a tactile device reference; animation is limited to audience transitions, card entrances, and responsive hover feedback.
+
+The refinement uses **Figtree** for a more composed professional voice and IBM Plex Mono for system labels. The new transparent credential asset is the central physical object, with a scroll-led suspended-card transition that moves between identity, access and care rather than relying on decorative effects.
+
+**Modern Solutions** is the active design direction. Ink navy is the anchor, clear electric blue is the sole system/action accent, mint is reserved for live status, and verification-style panels use crisp edges and fine rules rather than soft SaaS cards.

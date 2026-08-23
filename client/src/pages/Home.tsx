@@ -2,7 +2,7 @@
  * Modern solutions redesign: neutral surfaces, ink-blue foundation, electric indigo states,
  * high-clarity information architecture, and restrained motion for an enterprise product story.
  */
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
   BellRing,
@@ -34,12 +34,13 @@ import {
   UsersRound,
   Wifi,
 } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
+import "../professional-motion.css";
 
 type Solution = "education" | "enterprise";
 
-const productImage = "/manus-storage/smart-lanyard-card-reference_3f3554cd.png";
+const productImage = "/manus-storage/smart-lanyard-transparent_b686992c.png";
 const brandMark = "/manus-storage/smart-lanyard-mark_37d205d9.png";
 
 const solutionData = {
@@ -91,6 +92,11 @@ function goTo(id: string) { document.querySelector(id)?.scrollIntoView({ behavio
 
 export default function Home() {
   const [solution, setSolution] = useState<Solution>("education");
+  const transitionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: transitionRef, offset: ["start end", "end start"] });
+  const credentialY = useTransform(scrollYProgress, [0, 0.5, 1], [90, 0, -70]);
+  const credentialScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.78, 1, 0.84]);
+  const credentialRotate = useTransform(scrollYProgress, [0, 0.5, 1], [-8, 0, 7]);
   const active = solutionData[solution];
   const ActiveIcon = active.icon;
   const requestDemo = () => toast("Demo request started", { description: "We’ll help you select the right first deployment." });
@@ -113,7 +119,17 @@ export default function Home() {
           <div className="hero-buttons"><button className="button-primary" onClick={requestDemo}>Explore Smart Lanyard <ArrowUpRight aria-hidden="true" /></button><button className="button-link" onClick={() => goTo("#solutions")}>See solutions <ChevronRight aria-hidden="true" /></button></div>
           <div className="hero-sectors"><span>EDUCATION</span><i /><span>ENTERPRISE</span><i /><span>HEALTHCARE</span><i /><span>MORE</span></div>
         </div>
-        <div className="modern-hero-product" aria-hidden="true"><div className="product-backplate" /><div className="product-status"><i />Connected</div><img src={productImage} alt="" /><div className="product-marker marker-a">e-paper display</div><div className="product-marker marker-b">NFC / BLE</div></div>
+        <motion.div className="modern-hero-product" aria-hidden="true" initial={{ opacity: 0, y: 36, rotate: 3 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ duration: .72, delay: .14, ease: [0.23, 1, .32, 1] }}><div className="product-backplate" /><div className="product-status"><i />Connected</div><img src={productImage} alt="" /><div className="product-marker marker-a">e-paper display</div><div className="product-marker marker-b">NFC / BLE</div></motion.div>
+      </section>
+
+      <section className="credential-pass" ref={transitionRef} aria-label="Smart Lanyard product transition">
+        <div className="credential-pass-sticky">
+          <div className="pass-grid" aria-hidden="true" /><div className="pass-ring pass-ring-a" aria-hidden="true" /><div className="pass-ring pass-ring-b" aria-hidden="true" />
+          <div className="pass-copy pass-copy-left"><p>ONE WEARABLE LAYER</p><h2>Identity that<br />stays current.</h2><span>New access, updates and alerts can arrive without issuing another card.</span></div>
+          <motion.div className="pass-card" style={{ y: credentialY, scale: credentialScale, rotate: credentialRotate }}><div className="pass-card-glow" /><img src={productImage} alt="Smart Lanyard digital identity card" /><i className="pass-light" /></motion.div>
+          <div className="pass-copy pass-copy-right"><p>LIVE WHEN NEEDED</p><div><span>01</span><b>Identity</b></div><div><span>02</span><b>Access</b></div><div><span>03</span><b>Care</b></div></div>
+          <div className="pass-scroll-note">SCROLL TO FOLLOW THE SIGNAL <ChevronRight aria-hidden="true" /></div>
+        </div>
       </section>
 
       <section className="modern-strip"><span>THE SMART LANYARD ADVANTAGE</span><div><b>01</b> IDENTITY <b>02</b> ACCESS <b>03</b> UPDATES <b>04</b> INSIGHTS</div></section>
