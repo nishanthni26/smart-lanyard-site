@@ -265,6 +265,18 @@
 - [x] Confirmed the caption is absent and the product image remains clear at desktop and mobile breakpoints.
 - [x] Verify the updated product visual on desktop and mobile, then save a delivery checkpoint.
 
+## Two Supplied Product Images
+
+- [x] Add the supplied live-status Smart Lanyard visual and supplied student identity-card visual in distinct, complementary homepage placements.
+- [x] Confirmed both visuals are distinct, balanced, and fully visible at desktop and mobile breakpoints.
+- [x] Verify both product visuals remain clear, balanced, and responsive without repetitive visual clutter, then save a delivery checkpoint.
+
+## Student Identity Image Hero Move
+
+- [x] Remove the supplied student identity-card visual from the product section and place it in the opening hero.
+- [x] Confirmed the identity card is visible in the hero and absent from the product section at desktop and mobile sizes.
+- [x] Verify the hero and product section remain balanced at desktop and mobile breakpoints, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
