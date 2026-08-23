@@ -277,6 +277,13 @@
 - [x] Confirmed the identity card is visible in the hero and absent from the product section at desktop and mobile sizes.
 - [x] Verify the hero and product section remain balanced at desktop and mobile breakpoints, then save a delivery checkpoint.
 
+## Image Frame and Transition Follow-up
+
+- [x] Remove the visible frame around the hero identity-card image while preserving its clean cutout appearance.
+- [x] Add a complementary image treatment with restrained transition behavior in the requested homepage area.
+- [x] Confirmed the frame-free hero identity card and supporting transitioned image remain clear at desktop and mobile sizes.
+- [x] Verify both image treatments on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
