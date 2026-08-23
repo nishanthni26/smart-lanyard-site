@@ -213,6 +213,12 @@
 - [x] Replace compact footers with a complete responsive footer including navigation, solution links, and the single demo request action.
 - [x] Validate all pages and responsive footer layouts, then save a delivery checkpoint.
 
+## Logo Correction and Team Section
+
+- [x] Remove the automated inline logo sizing that distorted the header layout and preserve an enlarged but balanced logo treatment.
+- [x] Add a simple Team section featuring Nishanth, Priya, and Srikanth.
+- [x] Validate the corrected brand header and Team section on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
