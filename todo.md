@@ -298,6 +298,13 @@
 - [x] Confirmed the enlarged hanging card and title connection remain clear at desktop and mobile breakpoints.
 - [x] Verify the animated hero on desktop and mobile, then save a delivery checkpoint.
 
+## Matter-Attached Hero Swing Refinement
+
+- [x] Remove the targeted extra hero element indicated by the visual editor.
+- [x] Attach the lanyard thread to the word “matter” and update the card to a slightly quicker horizontal-only swing.
+- [x] Confirmed the cleaner hero and word-attached thread remain clear at desktop and mobile breakpoints.
+- [x] Verify the refined hero at desktop and mobile sizes, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
