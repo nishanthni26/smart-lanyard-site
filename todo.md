@@ -56,6 +56,12 @@
 - [x] Add a smooth scroll-led credential motion sequence inspired by the supplied reference animation.
 - [x] Verify desktop/mobile typography and motion, then save a delivery checkpoint.
 
+## Mobile Optimization
+
+- [x] Improve mobile hero hierarchy, product placement, and primary action sizing.
+- [x] Improve transition, solution cards, and platform content for small-screen scanning and tapping.
+- [x] Validate phone layouts at narrow and standard mobile widths, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
