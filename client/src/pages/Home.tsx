@@ -14,7 +14,7 @@ type Capability = { name: string; surfaces: Surface[]; note?: string };
 type SolutionModule = { title: string; copy: string; items: Capability[]; icon: typeof GraduationCap };
 
 const heroImage = "/manus-storage/smart-lanyard-friendly-hero-replacement_a1a3c0c8.jpg";
-const cardImage = "/manus-storage/smart-lanyard-status-card_95484627.png";
+const cardImage = "/manus-storage/smart-lanyard-status-card-cutout_40516fd3.png";
 const brandMark = "/manus-storage/smart-lanyard-loop-logo_e44db5b8.png";
 
 const productJobs = [

@@ -253,6 +253,11 @@
 - [x] Upload the supplied Smart Lanyard visual to managed storage and add it as the one focused hardware image in the product story.
 - [x] Verify the image remains balanced and fully visible on desktop and mobile, then save a delivery checkpoint.
 
+## Product Image Background Removal
+
+- [x] Remove only the background from the supplied Smart Lanyard image while preserving the full lanyard, device, and screen content.
+- [x] Replace the current product visual with the edited transparent asset and verify desktop/mobile presentation before checkpointing.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
