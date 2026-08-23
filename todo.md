@@ -170,6 +170,18 @@
 - [x] Ensure the new image keeps the Smart Lanyard clearly visible without obscuring hero copy.
 - [x] Validate the new hero background on desktop and mobile, then save a delivery checkpoint.
 
+## Final Visual Editor Removal
+
+- [x] Identify and remove the intended stale hero element flagged by the visual editor.
+- [x] Verify that the desktop and mobile hero compositions remain balanced after removal.
+- [x] Create a verified delivery checkpoint.
+
+## FAQ Page
+
+- [x] Add a dedicated FAQ page with clear product, education, workplace, safety, and implementation answers.
+- [x] Link the FAQ page from the site navigation and ensure a simple return path to the product page.
+- [x] Validate desktop/mobile FAQ interactions and save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
