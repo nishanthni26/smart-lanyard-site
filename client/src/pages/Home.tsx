@@ -3,7 +3,7 @@
  * controlled Signal Cyan, editorial asymmetry, and a suspended credential motif.
  */
 import { Button } from "@/components/ui/button";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -24,7 +24,7 @@ import {
   ShieldCheck,
   UserRoundCheck,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 type Audience = "students" | "companies";
@@ -87,14 +87,50 @@ const steps = [
   },
 ];
 
+const displayModes = [
+  { label: "STUDENT MODE", primary: "Period 03", secondary: "Physics · Room 204", signal: "ON CAMPUS" },
+  { label: "CORPORATE MODE", primary: "08:45", secondary: "Design review · Level 5", signal: "ACCESS ACTIVE" },
+  { label: "HOSPITAL MODE", primary: "Ward 7", secondary: "Shift begins · 09:00", signal: "CARE TEAM" },
+  { label: "FACTORY MODE", primary: "Line A3", secondary: "Safety zone cleared", signal: "SITE READY" },
+];
+
 const heroImage = "/manus-storage/smart-lanyard-hero_60ef3c57.jpg";
 const lanyardImage = "/manus-storage/smart-lanyard-product_fdf29ba0.png";
 const detailImage = "/manus-storage/smart-lanyard-detail_f550f9ff.jpg";
 const brandMark = "/manus-storage/smart-lanyard-mark_37d205d9.png";
 
+function Magnetic({ children }: { children: ReactNode }) {
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+
+  return (
+    <motion.div
+      className="magnetic-wrap"
+      animate={offset}
+      transition={{ type: "spring", stiffness: 380, damping: 22, mass: 0.45 }}
+      onPointerMove={(event) => {
+        if (event.pointerType === "touch") return;
+        const rect = event.currentTarget.getBoundingClientRect();
+        setOffset({
+          x: ((event.clientX - rect.left) / rect.width - 0.5) * 9,
+          y: ((event.clientY - rect.top) / rect.height - 0.5) * 7,
+        });
+      }}
+      onPointerLeave={() => setOffset({ x: 0, y: 0 })}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function Home() {
   const [audience, setAudience] = useState<Audience>("students");
+  const [scrolled, setScrolled] = useState(false);
+  const [displayMode, setDisplayMode] = useState(0);
   const revealRef = useRef<HTMLElement>(null);
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const displayRotateY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-11, 11]), { stiffness: 180, damping: 19 });
+  const displayRotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [8, -8]), { stiffness: 180, damping: 19 });
   const { scrollYProgress } = useScroll({
     target: revealRef,
     offset: ["start end", "end start"],
@@ -104,6 +140,21 @@ export default function Home() {
   const productRotate = useTransform(scrollYProgress, [0.08, 0.45, 0.82], [-7, 1.5, -1]);
   const activeData = audienceData[audience];
   const AudienceIcon = activeData.icon;
+  const activeDisplay = displayModes[displayMode];
+
+  useEffect(() => {
+    const updateScrollState = () => setScrolled(window.scrollY > 28);
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setDisplayMode((currentMode) => (currentMode + 1) % displayModes.length);
+    }, 3800);
+    return () => window.clearInterval(timer);
+  }, []);
 
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -117,7 +168,7 @@ export default function Home() {
 
   return (
     <main className="signal-noir-page">
-      <header className="site-header">
+      <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
         <button className="brand-lockup" onClick={() => scrollTo("#top")} aria-label="Smart Lanyard home">
           <img src={brandMark} alt="" className="brand-mark" />
           <span>SMART LANYARD</span>
@@ -126,25 +177,59 @@ export default function Home() {
           <button onClick={() => scrollTo("#features")}>Capabilities</button>
           <button onClick={() => scrollTo("#how-it-works")}>How it works</button>
         </nav>
-        <Button className="header-cta" onClick={requestDemo}>
-          Request a demo <ArrowUpRight aria-hidden="true" />
-        </Button>
+        <Magnetic><Button className="header-cta" onClick={requestDemo}>Request a demo <ArrowUpRight aria-hidden="true" /></Button></Magnetic>
       </header>
 
-      <section className="hero-section" id="top" aria-labelledby="hero-title">
+      <section
+        className="hero-section"
+        id="top"
+        aria-labelledby="hero-title"
+        onPointerMove={(event) => {
+          if (event.pointerType === "touch") return;
+          const rect = event.currentTarget.getBoundingClientRect();
+          pointerX.set((event.clientX - rect.left) / rect.width - 0.5);
+          pointerY.set((event.clientY - rect.top) / rect.height - 0.5);
+        }}
+        onPointerLeave={() => { pointerX.set(0); pointerY.set(0); }}
+      >
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-glow hero-glow-one" aria-hidden="true" />
         <img src={brandMark} alt="" className="hero-symbol-watermark" aria-hidden="true" />
+        <div className="hero-particles" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
         <div className="hero-copy reveal-in">
           <div className="eyebrow"><span className="status-dot" /> Connected identity layer</div>
           <h1 id="hero-title">Smart<br /><span>Lanyard</span></h1>
           <p className="hero-statement">Smart Identity. <em>Real-Time Visibility.</em></p>
           <p className="hero-description">One smart lanyard for identity, access, safety and real-time visibility.</p>
           <div className="hero-actions">
-            <Button className="primary-cta" onClick={requestDemo}>Request a Demo <ArrowUpRight aria-hidden="true" /></Button>
+            <Magnetic><Button className="primary-cta" onClick={requestDemo}>Request a Demo <ArrowUpRight aria-hidden="true" /></Button></Magnetic>
             <button className="text-cta" onClick={() => scrollTo("#features")}>Explore the system <ChevronRight aria-hidden="true" /></button>
           </div>
         </div>
+        <motion.div
+          className="hero-display-demo"
+          aria-live="polite"
+          style={{ rotateX: displayRotateX, rotateY: displayRotateY, transformPerspective: 900 }}
+          animate={{ y: [0, -8, 0] }}
+          transition={{ y: { duration: 4.7, repeat: Infinity, ease: "easeInOut" } }}
+        >
+          <div className="display-topline"><span>SL / E-PAPER</span><i /></div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              className="display-screen"
+              key={activeDisplay.label}
+              initial={{ opacity: 0, filter: "blur(3px)", y: 4 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              exit={{ opacity: 0, filter: "blur(2px)", y: -4 }}
+              transition={{ duration: 0.32, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <span>{activeDisplay.label}</span>
+              <strong>{activeDisplay.primary}</strong>
+              <small>{activeDisplay.secondary}</small>
+            </motion.div>
+          </AnimatePresence>
+          <div className="display-bottomline"><i /><span>{activeDisplay.signal}</span></div>
+        </motion.div>
         <div className="hero-person-wrap" aria-hidden="true">
           <img src={heroImage} alt="" className="hero-person" />
           <div className="person-shadow" />
@@ -156,6 +241,11 @@ export default function Home() {
 
       <section className="product-reveal" ref={revealRef} aria-label="Smart lanyard product reveal">
         <div className="reveal-sticky">
+          <svg className="cinematic-trace" viewBox="0 0 1280 720" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 472 H208 C276 472 282 424 345 424 H520 C572 424 580 458 637 458 H830 C902 458 895 395 968 395 H1280" />
+            <circle cx="208" cy="472" r="3" /><circle cx="637" cy="458" r="3" /><circle cx="968" cy="395" r="3" />
+          </svg>
+          <div className="reveal-coordinates" aria-hidden="true"><span>AXIS / 49.12</span><span>LINK / SECURE</span><span>NODE / 03</span></div>
           <div className="reveal-technical reveal-technical-left"><span>CONNECTED</span><i /><span>SECURE</span></div>
           <div className="reveal-technical reveal-technical-right"><span>IDENTITY</span><i /><span>VISIBLE</span></div>
           <motion.div
@@ -176,7 +266,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="audience-section" id="features" aria-labelledby="audience-title">
+      <motion.section className="audience-section" id="features" aria-labelledby="audience-title" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}>
         <div className="section-rail"><span>02</span><i /><span>WHO IT SERVES</span></div>
         <div className="audience-intro">
           <p className="eyebrow">One wearable system, tailored context</p>
@@ -240,9 +330,9 @@ export default function Home() {
             </motion.div>
           </AnimatePresence>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="process-section" id="how-it-works" aria-labelledby="process-title">
+      <motion.section className="process-section" id="how-it-works" aria-labelledby="process-title" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}>
         <div className="process-header">
           <div>
             <p className="eyebrow">From issue to insight</p>
@@ -255,19 +345,19 @@ export default function Home() {
           {steps.map((step, index) => {
             const StepIcon = step.icon;
             return (
-              <article className="step-card" key={step.number}>
+              <motion.article className="step-card" key={step.number} initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.35, delay: index * 0.06, ease: [0.23, 1, 0.32, 1] }}>
                 <div className="step-number">{step.number}</div>
                 <div className="step-icon"><StepIcon aria-hidden="true" /></div>
                 <h3>{step.title}</h3>
                 <p>{step.copy}</p>
                 <span className="step-tail"><i />{index === steps.length - 1 ? "READY" : "NEXT"}</span>
-              </article>
+              </motion.article>
             );
           })}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="cta-section" aria-labelledby="cta-title">
+      <motion.section className="cta-section" aria-labelledby="cta-title" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}>
         <img src={detailImage} alt="" className="cta-detail" />
         <div className="cta-overlay" />
         <div className="cta-content">
@@ -275,12 +365,12 @@ export default function Home() {
           <h2 id="cta-title">Bring every<br /><em>moment into view.</em></h2>
           <p>See how Smart Lanyard can make identity, safety and visibility work as one.</p>
           <div className="cta-actions">
-            <Button className="primary-cta" onClick={requestDemo}>Request a Demo <ArrowUpRight aria-hidden="true" /></Button>
+            <Magnetic><Button className="primary-cta" onClick={requestDemo}>Request a Demo <ArrowUpRight aria-hidden="true" /></Button></Magnetic>
             <a href="mailto:hello@smartlanyard.com" className="contact-link">Contact us <ArrowUpRight aria-hidden="true" /></a>
           </div>
         </div>
         <div className="cta-corner" aria-hidden="true"><span>SL</span><i /></div>
-      </section>
+      </motion.section>
 
       <footer className="site-footer">
         <div className="brand-lockup footer-brand"><img src={brandMark} alt="" className="brand-mark" /><span>SMART LANYARD</span></div>
