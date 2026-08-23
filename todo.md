@@ -258,6 +258,13 @@
 - [x] Remove only the background from the supplied Smart Lanyard image while preserving the full lanyard, device, and screen content.
 - [x] Replace the current product visual with the edited transparent asset and verify desktop/mobile presentation before checkpointing.
 
+## Product Image Caption and Motion Follow-up
+
+- [x] Remove the targeted product-image caption from the homepage.
+- [x] Apply two restrained product-image transitions: an in-view entrance and a gentle floating state, respecting reduced-motion preferences.
+- [x] Confirmed the caption is absent and the product image remains clear at desktop and mobile breakpoints.
+- [x] Verify the updated product visual on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
