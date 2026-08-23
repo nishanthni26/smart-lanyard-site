@@ -124,7 +124,7 @@ export default function Home() {
 
       <section className="credential-pass" ref={transitionRef} aria-label="Smart Lanyard product transition">
         <div className="credential-pass-sticky">
-          <div className="pass-grid" aria-hidden="true" /><div className="pass-ring pass-ring-a" aria-hidden="true" /><div className="pass-ring pass-ring-b" aria-hidden="true" />
+          <div className="pass-grid" aria-hidden="true"><i /><i /><i /><i /><i /></div><div className="pass-ring pass-ring-a" aria-hidden="true" /><div className="pass-ring pass-ring-b" aria-hidden="true" />
           <div className="pass-copy pass-copy-left"><p>ONE WEARABLE LAYER</p><h2>Identity that<br />stays current.</h2><span>New access, updates and alerts can arrive without issuing another card.</span></div>
           <motion.div className="pass-card" style={{ y: credentialY, scale: credentialScale, rotate: credentialRotate }}><div className="pass-card-glow" /><img src={productImage} alt="Smart Lanyard digital identity card" /><i className="pass-light" /></motion.div>
           <div className="pass-copy pass-copy-right"><p>LIVE WHEN NEEDED</p><div><span>01</span><b>Identity</b></div><div><span>02</span><b>Access</b></div><div><span>03</span><b>Care</b></div></div>
@@ -140,7 +140,7 @@ export default function Home() {
         <AnimatePresence mode="wait">
           <motion.div className="solution-stage" key={solution} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} transition={{ duration: .32, ease: [0.23, 1, .32, 1] }}>
             <aside className="solution-intro"><div className="solution-icon"><ActiveIcon aria-hidden="true" /></div><p>{active.tab.toUpperCase()} SOLUTION</p><h3>{active.title}</h3><span>{active.description}</span><button onClick={requestDemo}>Plan this deployment <ArrowUpRight aria-hidden="true" /></button></aside>
-            <div className="solution-groups">{active.groups.map((group, index) => { const Icon = group.icon; return <motion.article key={group.title} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .05 + index * .04, duration: .25 }}><div className="group-icon"><Icon aria-hidden="true" /></div><div><p><b>0{index + 1}</b> {group.title}</p><ul>{group.features.map((feature) => <li key={feature}><Check aria-hidden="true" />{feature}</li>)}</ul></div></motion.article>; })}</div>
+            <div className="solution-groups">{active.groups.map((group, index) => { const Icon = group.icon; return <motion.article key={group.title} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .05 + index * .04, duration: .25 }}><div className="group-icon"><Icon aria-hidden="true" /></div><div><p><b>0{index + 1}</b> {group.title}</p><ul>{group.features.map((feature, featureIndex) => <li key={feature} className="solution-feature"><span>0{featureIndex + 1}</span><Check aria-hidden="true" />{feature}</li>)}</ul></div></motion.article>; })}</div>
           </motion.div>
         </AnimatePresence>
       </section>

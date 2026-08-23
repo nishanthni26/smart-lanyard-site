@@ -62,6 +62,12 @@
 - [x] Improve transition, solution cards, and platform content for small-screen scanning and tapping.
 - [x] Validate phone layouts at narrow and standard mobile widths, then save a delivery checkpoint.
 
+## Visual Editor Follow-up
+
+- [x] Locate the four unresolved comment targets in the current page structure.
+- [x] Apply the requested redesign, list styling, and font-size changes manually.
+- [x] Verify the adjusted page and save a checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
