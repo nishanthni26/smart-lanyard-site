@@ -95,6 +95,12 @@
 - [x] Rebuild use-case and workflow content as calm, credible product evidence.
 - [x] Validate desktop/mobile presentation, then save a delivery checkpoint.
 
+## UI Pro Initialization
+
+- [x] Inspect the supplied UI UX Pro Max skill repository and confirm compatibility with the current React/Vite project.
+- [x] Initialize the supported UI Pro toolset or record the specific integration requirement. Installed the universal UI UX Pro Max workflow through its supported CLI.
+- [x] Validate the initialized workflow and save a checkpoint if project changes are made.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

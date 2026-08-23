@@ -1,7 +1,7 @@
 /**
  * Editorial Hardware direction: warm-white paper, ink typography, cobalt only as a precise system signal,
  * and one credibly staged Smart Lanyard product artifact. */
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { ArrowDownRight, ArrowUpRight, Building2, Check, ChevronRight, GraduationCap, ShieldCheck, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -48,6 +48,7 @@ export default function Home() {
   const requestDemo = () => toast("Demo request started", { description: "We’ll help you plan a focused first deployment." });
 
   return (
+    <MotionConfig reducedMotion="user">
     <main className="editorial-page">
       <header className="editorial-nav"><button className="editorial-brand" onClick={() => goTo("#top")} aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></button><nav aria-label="Primary navigation"><button onClick={() => goTo("#contexts")}>Contexts</button><button onClick={() => goTo("#principles")}>Principles</button><button onClick={() => goTo("#contact")}>Contact</button></nav><button className="nav-inquiry" onClick={requestDemo}>Make an enquiry <ArrowUpRight /></button></header>
 
@@ -65,5 +66,6 @@ export default function Home() {
 
       <footer className="editorial-footer"><div className="editorial-brand"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></div><span>IDENTITY / ACCESS / AWARENESS</span><b>© 2026</b></footer>
     </main>
+    </MotionConfig>
   );
 }
