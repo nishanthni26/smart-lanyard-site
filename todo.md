@@ -28,6 +28,13 @@
 - [x] Preserve the hero, scroll sequence, and page spacing without empty or awkward card placeholders.
 - [x] Validate the card-free layout on desktop and mobile, then save a delivery checkpoint.
 
+## Reference Image and Dual-Audience Scene
+
+- [x] Add the supplied lanyard-card image as a subdued visual layer behind the hero person.
+- [x] Build a lower product scene with the supplied lanyard-card visual centered between two animated feature columns.
+- [x] Present Student features on the left and Company features on the right, with separate entrance animations and readable grouping.
+- [x] Validate desktop and mobile composition, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

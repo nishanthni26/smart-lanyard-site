@@ -98,6 +98,7 @@ const heroImage = "/manus-storage/smart-lanyard-hero_60ef3c57.jpg";
 const lanyardImage = "/manus-storage/smart-lanyard-product_fdf29ba0.png";
 const detailImage = "/manus-storage/smart-lanyard-detail_f550f9ff.jpg";
 const brandMark = "/manus-storage/smart-lanyard-mark_37d205d9.png";
+const lanyardCardReference = "/manus-storage/smart-lanyard-card-reference_3f3554cd.png";
 
 function Magnetic({ children }: { children: ReactNode }) {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -164,7 +165,7 @@ export default function Home() {
           <span>SMART LANYARD</span>
         </button>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <button onClick={() => scrollTo("#features")}>Capabilities</button>
+          <button onClick={() => scrollTo("#audience-scene")}>Capabilities</button>
           <button onClick={() => scrollTo("#how-it-works")}>How it works</button>
         </nav>
         <Magnetic><Button className="header-cta" onClick={requestDemo}>Request a demo <ArrowUpRight aria-hidden="true" /></Button></Magnetic>
@@ -185,6 +186,7 @@ export default function Home() {
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-glow hero-glow-one" aria-hidden="true" />
         <img src={brandMark} alt="" className="hero-symbol-watermark" aria-hidden="true" />
+        <div className="hero-card-reference" aria-hidden="true"><img src={lanyardCardReference} alt="" /></div>
         <div className="hero-particles" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
         <div className="hero-copy reveal-in">
           <div className="eyebrow"><span className="status-dot" /> Connected identity layer</div>
@@ -193,7 +195,7 @@ export default function Home() {
           <p className="hero-description">One smart lanyard for identity, access, safety and real-time visibility.</p>
           <div className="hero-actions">
             <Magnetic><Button className="primary-cta" onClick={requestDemo}>Request a Demo <ArrowUpRight aria-hidden="true" /></Button></Magnetic>
-            <button className="text-cta" onClick={() => scrollTo("#features")}>Explore the system <ChevronRight aria-hidden="true" /></button>
+            <button className="text-cta" onClick={() => scrollTo("#audience-scene")}>Explore the system <ChevronRight aria-hidden="true" /></button>
           </div>
         </div>
         <div className="hero-person-wrap" aria-hidden="true">
@@ -205,7 +207,7 @@ export default function Home() {
         <div className="hero-meta hero-meta-right"><span>SCROLL TO REVEAL</span><ArrowDownRight aria-hidden="true" /></div>
       </section>
 
-      <section className="product-reveal" ref={revealRef} aria-label="Smart lanyard product reveal">
+      <section className="product-reveal dual-audience-reveal" ref={revealRef} id="audience-scene" aria-label="Student and company Smart Lanyard features">
         <div className="reveal-sticky">
           <svg className="cinematic-trace" viewBox="0 0 1280 720" preserveAspectRatio="none" aria-hidden="true">
             <path d="M0 472 H208 C276 472 282 424 345 424 H520 C572 424 580 458 637 458 H830 C902 458 895 395 968 395 H1280" />
@@ -214,17 +216,27 @@ export default function Home() {
           <div className="reveal-coordinates" aria-hidden="true"><span>AXIS / 49.12</span><span>LINK / SECURE</span><span>NODE / 03</span></div>
           <div className="reveal-technical reveal-technical-left"><span>CONNECTED</span><i /><span>SECURE</span></div>
           <div className="reveal-technical reveal-technical-right"><span>IDENTITY</span><i /><span>VISIBLE</span></div>
-          <motion.div className="product-stage signal-core-stage" style={{ y: productY, scale: productScale, rotate: productRotate }}>
+          <motion.div className="dual-feature-panel dual-feature-panel-students" initial={{ opacity: 0, x: -28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}>
+            <div className="dual-feature-panel-head"><GraduationCap aria-hidden="true" /><span>FOR STUDENTS</span></div>
+            <h3>Safer,<br />more connected days.</h3>
+            <div className="dual-feature-list">{audienceData.students.features.map((feature, index) => { const FeatureIcon = feature.icon; return <motion.div key={feature.title} initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: .12 + index * .055, duration: .25 }}><span>0{index + 1}</span><FeatureIcon aria-hidden="true" /><b>{feature.title}</b></motion.div>; })}</div>
+          </motion.div>
+          <motion.div className="product-stage product-reference-stage" style={{ y: productY, scale: productScale, rotate: productRotate }}>
             <div className="signal-halo" />
             <div className="product-orbit product-orbit-one" />
             <div className="product-orbit product-orbit-two" />
-            <div className="signal-core" aria-hidden="true"><i /><i /><i /><i /><span>CONNECTED<br />PRESENCE</span></div>
-            <span className="product-cue product-cue-one"><i />REAL-TIME STATUS</span>
-            <span className="product-cue product-cue-two"><i />SECURE SYSTEM</span>
+            <div className="reference-card-frame"><img src={lanyardCardReference} alt="Smart Lanyard hardware reference" /></div>
+            <span className="product-cue product-cue-one"><i />CONNECTED DEVICE</span>
+            <span className="product-cue product-cue-two"><i />LIVE STATUS</span>
+          </motion.div>
+          <motion.div className="dual-feature-panel dual-feature-panel-companies" initial={{ opacity: 0, x: 28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}>
+            <div className="dual-feature-panel-head"><Building2 aria-hidden="true" /><span>FOR COMPANIES</span></div>
+            <h3>One credential.<br />Clearer operations.</h3>
+            <div className="dual-feature-list">{audienceData.companies.features.map((feature, index) => { const FeatureIcon = feature.icon; return <motion.div key={feature.title} initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: .12 + index * .055, duration: .25 }}><span>0{index + 1}</span><FeatureIcon aria-hidden="true" /><b>{feature.title}</b></motion.div>; })}</div>
           </motion.div>
           <div className="reveal-title-wrap">
-            <p className="eyebrow centered-eyebrow">A connected presence layer</p>
-            <h2>One calm system.<br />Clearer operations.</h2>
+            <p className="eyebrow centered-eyebrow">One product, two environments</p>
+            <h2>Made for every<br />day in motion.</h2>
           </div>
         </div>
       </section>
