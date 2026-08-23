@@ -20,7 +20,7 @@ const questions = [
   { id: "security", group: "Safety and security", question: "What happens if a card is lost or someone needs help?", answer: "The setup can include lost-card mode, remote card disable, emergency contacts and a one-touch SOS trigger. Organisations control which safety tools are enabled for their users." },
   { id: "privacy", group: "Safety and security", question: "How is access and identity information protected?", answer: "Smart Lanyard is designed around secure identity and access management. The organisation controls card permissions and administrative access through its configured platform setup." },
   { id: "custom", group: "Setup", question: "Can the card be customised for our organisation?", answer: "Yes. The card design, enabled features, app experience and dashboard configuration can be tailored to your school, workplace or connected identity project." },
-  { id: "ai", group: "Setup", question: "Are the AI features available now?", answer: "Smart Lanyard’s core identity, access, attendance and safety capabilities are available today. AI tools are a supporting layer for reminders and insights, with deeper features being rolled out to pilot partners." },
+  { id: "ai", group: "Setup", question: "Are the AI features available now?", answer: "Smart Lanyard’s core identity, access, attendance and safety capabilities are available today. AI tools are a supporting layer for reminders and insights, with deeper features being introduced gradually." },
 ];
 
 export default function Faq() {
@@ -28,7 +28,7 @@ export default function Faq() {
     <header className="faq-nav">
       <a className="faq-brand" href="/" aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></a>
       <nav aria-label="Primary navigation"><a href="/#product">The product</a><a href="/#solutions">Who it helps</a><a href="/#platform">Why it helps</a><a className="active" href="/faq">FAQ</a></nav>
-      <ThemeToggle /><a className="faq-nav-cta" href="/#contact">Book a demo <ArrowRight /></a>
+      <ThemeToggle />
     </header>
 
     <section className="faq-hero">
@@ -46,7 +46,7 @@ export default function Faq() {
     </section>
 
     <section className="faq-content">
-      <div className="faq-content-heading"><p className="faq-eyebrow"><i /> FIND YOUR ANSWER</p><h2>Questions people<br /><em>ask us most.</em></h2><p>Choose a question to read the answer. Still need help? Our product team can discuss your specific school or workplace setup.</p><a href="/#contact">Talk to the product team <ArrowRight /></a></div>
+      <div className="faq-content-heading"><p className="faq-eyebrow"><i /> FIND YOUR ANSWER</p><h2>Questions people<br /><em>ask us most.</em></h2><p>Choose a question to read the answer. If you still need help, use the demo link in the footer to tell us about your school or workplace.</p></div>
       <Accordion type="single" collapsible className="faq-accordion" defaultValue="what">
         {questions.map((item) => <AccordionItem value={item.id} key={item.id} className="faq-item"><span className="faq-group">{item.group}</span><AccordionTrigger className="faq-trigger">{item.question}</AccordionTrigger><AccordionContent className="faq-answer"><p>{item.answer}</p></AccordionContent></AccordionItem>)}
       </Accordion>
@@ -54,7 +54,6 @@ export default function Faq() {
 
     <section className="faq-audiences"><div><p className="faq-eyebrow"><i /> BUILT AROUND PEOPLE</p><h2>For schools.<br /><em>For workplaces.</em></h2></div><div className="faq-audience-cards"><article><GraduationCap /><h3>Questions from education teams</h3><p>Talk through student identity, attendance, family updates and campus access.</p><a href="/#solutions">Explore education solutions <ArrowRight /></a></article><article><Building2 /><h3>Questions from workplace teams</h3><p>Talk through employee identity, access, administration and safety workflows.</p><a href="/#solutions">Explore workplace solutions <ArrowRight /></a></article></div></section>
 
-    <section className="faq-cta"><div><p className="faq-eyebrow"><i /> STILL CURIOUS?</p><h2>Let’s talk about<br /><em>your setup.</em></h2></div><div><p>Tell us whether you are supporting a school or workplace. We will help you identify the most useful place to start.</p><a href="/#contact">Book a Pilot <ArrowRight /></a></div></section>
-    <footer className="faq-footer"><a className="faq-brand" href="/"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></a><span>Education · Enterprise · Healthcare · Manufacturing · Government · Hospitality</span><b>© 2026 Smart Lanyard</b></footer>
+    <footer className="faq-footer"><a className="faq-brand" href="/"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></a><a className="faq-demo-link" href="/demo">Request a demo <ArrowRight /></a><span>Education · Enterprise · Healthcare · Manufacturing · Government · Hospitality</span><b>© 2026 Smart Lanyard</b></footer>
   </main>;
 }

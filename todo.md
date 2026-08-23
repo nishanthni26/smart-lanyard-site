@@ -136,9 +136,9 @@
 
 ## Product-Specific Copy Rewrite
 
-- [ ] Replace broad marketing language with a concise explanation of the Smart Lanyard product and its core use cases.
-- [ ] Make school and company outcomes concrete while retaining the required feature details.
-- [ ] Validate the rewritten copy at desktop and mobile breakpoints, then save a delivery checkpoint.
+- [x] Replace broad marketing language with a concise explanation of the Smart Lanyard product and its core use cases.
+- [x] Make school and company outcomes concrete while retaining the required feature details.
+- [x] Validate the rewritten copy at desktop and mobile breakpoints, then save a delivery checkpoint.
 
 ## Supplied Product Portfolio Integration
 
@@ -199,6 +199,13 @@
 - [x] Increase header and footer logo/company-name scale while preserving a balanced navigation layout.
 - [x] Strengthen light and dark mode contrast for the logo and company name.
 - [x] Validate desktop/mobile brand visibility and save a delivery checkpoint.
+
+## Demo Request Flow
+
+- [x] Replace pilot language with a single clear demo request action in the footer.
+- [x] Remove the how-it-works section and outdated demo/pilot actions from existing pages.
+- [x] Add a Demo Request page with a secure form for contact details and organisation needs.
+- [x] Store submitted demo requests securely and validate the form submission flow across desktop/mobile.
 
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
