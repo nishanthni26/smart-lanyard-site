@@ -1,161 +1,133 @@
 /**
- * Modern solutions redesign: neutral surfaces, ink-blue foundation, electric indigo states,
- * high-clarity information architecture, and restrained motion for an enterprise product story.
+ * Future Signal design: near-black spatial canvas, signal-blue as active interface light,
+ * oversized Space Grotesk type, and one physical lanyard showcase surrounded by abstract data motion.
  */
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowUpRight,
   BellRing,
-  BookOpenCheck,
-  BrainCircuit,
   Building2,
-  CalendarClock,
   Check,
-  ChevronRight,
+  ChevronDown,
+  CircleDot,
   Clock3,
-  CreditCard,
-  FileText,
   Fingerprint,
   GraduationCap,
-  HeartPulse,
-  IdCard,
-  KeyRound,
-  Library,
-  LockKeyhole,
+  LayoutGrid,
   MapPinned,
-  MessageSquareText,
-  QrCode,
   RadioTower,
   ScanLine,
-  ShieldAlert,
   ShieldCheck,
-  Smartphone,
   Sparkles,
   UsersRound,
   Wifi,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
-import "../professional-motion.css";
+import "../future.css";
 
-type Solution = "education" | "enterprise";
+type Audience = "students" | "teams";
 
 const productImage = "/manus-storage/smart-lanyard-transparent_b686992c.png";
-const brandMark = "/manus-storage/smart-lanyard-mark_37d205d9.png";
+const brandMark = "/manus-storage/smart-lanyard-loop-logo_e44db5b8.png";
 
-const solutionData = {
-  education: {
-    tab: "Education",
-    title: "A student pass that keeps the whole campus connected.",
-    description: "A familiar wearable that brings learning, access, safety and family communication into a single daily experience.",
+const modes = {
+  students: {
+    label: "EDUCATION MODE",
+    name: "A calmer campus signal.",
+    detail: "A single credential makes arrivals, schedules, access and care easier to understand for everyone around a student.",
     icon: GraduationCap,
-    groups: [
-      { icon: IdCard, title: "Smart student identity", features: ["Digital E-Paper ID Card", "Student profile", "Dynamic QR Code", "NFC attendance"] },
-      { icon: CalendarClock, title: "Academic rhythm", features: ["Live timetable", "Homework & assignments", "Exam schedule", "Class change alerts"] },
-      { icon: BellRing, title: "Parent connection", features: ["Entry & exit notifications", "Attendance alerts", "Exam notifications", "Emergency broadcasts"] },
-      { icon: Library, title: "Campus experience", features: ["Library and lab access", "School bus integration", "Cafeteria and event pass", "Sports access"] },
-      { icon: ShieldAlert, title: "Student safety", features: ["One-touch SOS", "Medical information", "Lost student alerts", "Secure campus access"] },
-      { icon: BrainCircuit, title: "AI guidance", features: ["Study reminders", "Homework planner", "Attendance insights", "Daily learning summary"] },
+    cards: [
+      { icon: ScanLine, title: "Arrive with certainty", note: "Attendance and entry become a clear live moment, not another manual task.", tags: ["NFC check-in", "Arrival update"] },
+      { icon: BellRing, title: "Keep the right people in sync", note: "Timetable changes, notices and reminders land on the credential when they matter.", tags: ["E-paper updates", "Family alerts"] },
+      { icon: ShieldCheck, title: "Make safety immediate", note: "A visible identity layer and one-touch response support safer everyday movement.", tags: ["SOS ready", "Secure access"] },
     ],
   },
-  enterprise: {
-    tab: "Enterprise",
-    title: "One intelligent identity for a workplace in motion.",
-    description: "Give people what they need to enter, navigate, stay informed and respond—without another card, app or manual step.",
+  teams: {
+    label: "WORKPLACE MODE",
+    name: "One identity. A more fluid workday.",
+    detail: "Give employees a single wearable layer for entering, navigating, staying informed and responding with confidence.",
     icon: Building2,
-    groups: [
-      { icon: CreditCard, title: "Employee identity", features: ["Digital employee ID", "Dynamic E-Paper display", "QR authentication", "NFC access"] },
-      { icon: Clock3, title: "Workday flow", features: ["Meeting reminders", "Shift schedule", "Desk information", "Company announcements"] },
-      { icon: UsersRound, title: "Employee services", features: ["Leave status", "Payroll notifications", "Training reminders", "Recognition updates"] },
-      { icon: KeyRound, title: "Smart access", features: ["Building and parking access", "Locker and cafeteria access", "Meeting room entry", "Restricted area control"] },
-      { icon: ShieldCheck, title: "Workplace safety", features: ["One-touch SOS", "Evacuation alerts", "Lost card mode", "Instant card disable"] },
-      { icon: Sparkles, title: "AI assistance", features: ["Meeting assistant", "Daily agenda", "Productivity insights", "Knowledge assistant"] },
+    cards: [
+      { icon: Fingerprint, title: "Make access effortless", note: "Identity and access move together across spaces, rooms and the moments in between.", tags: ["Dynamic credential", "NFC access"] },
+      { icon: Clock3, title: "Keep the day visible", note: "The card can surface schedules, meeting changes and vital workday information in context.", tags: ["Live agenda", "Shift updates"] },
+      { icon: RadioTower, title: "Respond as one system", note: "Live notifications and safety signals are there when a fast, coordinated response counts.", tags: ["Safety alert", "Card control"] },
     ],
   },
 } as const;
 
-const valuePoints = [
-  { icon: RadioTower, label: "Live on-card information" },
-  { icon: Wifi, label: "Secure NFC & Bluetooth" },
-  { icon: Smartphone, label: "Companion mobile apps" },
-  { icon: ScanLine, label: "Over-the-air updates" },
-  { icon: LockKeyhole, label: "Enterprise-grade security" },
-  { icon: Sparkles, label: "AI-powered insights" },
+const principles = [
+  { icon: Wifi, index: "01", title: "Always current", body: "The card becomes a living display for the identity and information a person needs right now." },
+  { icon: MapPinned, index: "02", title: "Built for movement", body: "The experience connects the people, places and transitions that shape an ordinary day." },
+  { icon: UsersRound, index: "03", title: "Designed for trust", body: "Clear signals and careful controls make the system useful without making it feel intrusive." },
 ];
 
-const painPoints = [
-  { audience: "Education", icon: BookOpenCheck, title: "Less paper. More reassurance.", items: ["No more static plastic ID cards", "Faster attendance with NFC", "Real-time family updates", "Safer everyday campus movement"] },
-  { audience: "Enterprise", icon: Building2, title: "Fewer cards. Clearer operations.", items: ["Replace fragmented employee credentials", "Simplify facility access", "Reduce HR and IT administration", "Improve emergency communication"] },
-];
-
-function goTo(id: string) { document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" }); }
+function goTo(id: string) {
+  document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 export default function Home() {
-  const [solution, setSolution] = useState<Solution>("education");
-  const transitionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: transitionRef, offset: ["start end", "end start"] });
-  const credentialY = useTransform(scrollYProgress, [0, 0.5, 1], [90, 0, -70]);
-  const credentialScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.78, 1, 0.84]);
-  const credentialRotate = useTransform(scrollYProgress, [0, 0.5, 1], [-8, 0, 7]);
-  const active = solutionData[solution];
+  const [audience, setAudience] = useState<Audience>("students");
+  const active = modes[audience];
   const ActiveIcon = active.icon;
-  const requestDemo = () => toast("Demo request started", { description: "We’ll help you select the right first deployment." });
+  const requestDemo = () => toast("Demo request started", { description: "We’ll help you plan the right first deployment." });
 
   return (
-    <main className="modern-page">
-      <header className="modern-nav">
-        <button className="modern-brand" onClick={() => goTo("#top")} aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></button>
-        <nav><button onClick={() => goTo("#solutions")}>Solutions</button><button onClick={() => goTo("#platform")}>Platform</button><button onClick={() => goTo("#why")}>Why us</button></nav>
-        <button className="modern-nav-cta" onClick={requestDemo}>Book a demo <ArrowUpRight aria-hidden="true" /></button>
+    <main className="future-page">
+      <header className="future-nav">
+        <button className="future-brand" onClick={() => goTo("#top")} aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></button>
+        <nav aria-label="Primary navigation"><button onClick={() => goTo("#modes")}>Use cases</button><button onClick={() => goTo("#system")}>System</button><button onClick={() => goTo("#contact")}>Contact</button></nav>
+        <button className="future-nav-cta" onClick={requestDemo}>Book a demo <ArrowUpRight aria-hidden="true" /></button>
       </header>
 
-      <section className="modern-hero" id="top">
-        <div className="hero-grid-quiet" aria-hidden="true" />
-        <div className="hero-orbit hero-orbit-a" aria-hidden="true" /><div className="hero-orbit hero-orbit-b" aria-hidden="true" />
-        <div className="modern-hero-copy">
-          <p className="hero-overline"><i /> SMART LANYARD PLATFORM</p>
-          <h1>One smart card.<br /><em>Unlimited possibilities.</em></h1>
-          <p className="hero-copy-text">A secure digital identity layer for education, enterprise and every environment where people need to move with confidence.</p>
-          <div className="hero-buttons"><button className="button-primary" onClick={requestDemo}>Explore Smart Lanyard <ArrowUpRight aria-hidden="true" /></button><button className="button-link" onClick={() => goTo("#solutions")}>See solutions <ChevronRight aria-hidden="true" /></button></div>
-          <div className="hero-sectors"><span>EDUCATION</span><i /><span>ENTERPRISE</span><i /><span>HEALTHCARE</span><i /><span>MORE</span></div>
+      <section className="future-hero" id="top">
+        <div className="hero-matrix" aria-hidden="true" /><div className="hero-glow hero-glow-a" aria-hidden="true" /><div className="hero-glow hero-glow-b" aria-hidden="true" />
+        <div className="hero-copy-future">
+          <p className="eyebrow"><i /> IDENTITY, IN MOTION</p>
+          <h1>One signal.<br /><em>Everywhere you move.</em></h1>
+          <p className="hero-lead">Smart Lanyard unifies identity, access, live updates and care into one wearable system for the real world.</p>
+          <div className="hero-actions"><button className="future-primary" onClick={requestDemo}>Explore the system <ArrowUpRight aria-hidden="true" /></button><button className="future-text-button" onClick={() => goTo("#modes")}>See use cases <ChevronDown aria-hidden="true" /></button></div>
+          <div className="hero-metrics"><span><b>01</b> LIVE IDENTITY</span><span><b>02</b> SMART ACCESS</span><span><b>03</b> REAL-TIME CARE</span></div>
         </div>
-        <motion.div className="modern-hero-product" aria-hidden="true" initial={{ opacity: 0, y: 36, rotate: 3 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ duration: .72, delay: .14, ease: [0.23, 1, .32, 1] }}><div className="product-backplate" /><div className="product-status"><i />Connected</div><img src={productImage} alt="" /><div className="product-marker marker-a">e-paper display</div><div className="product-marker marker-b">NFC / BLE</div></motion.div>
+        <motion.figure className="hero-product-focus" initial={{ opacity: 0, y: 48, rotate: 6 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ duration: 0.8, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}>
+          <div className="product-orbit orbit-one" aria-hidden="true" /><div className="product-orbit orbit-two" aria-hidden="true" /><div className="product-halo" aria-hidden="true" />
+          <img src={productImage} alt="Smart Lanyard digital identity card" />
+          <figcaption><span><i /> CARD ONLINE</span><span>V.01 / 2026</span></figcaption>
+          <div className="product-callout callout-a"><i /> E-PAPER DISPLAY</div><div className="product-callout callout-b"><i /> NFC / BLE</div>
+        </motion.figure>
       </section>
 
-      <section className="credential-pass" ref={transitionRef} aria-label="Smart Lanyard product transition">
-        <div className="credential-pass-sticky">
-          <div className="pass-grid" aria-hidden="true"><i /><i /><i /><i /><i /></div><div className="pass-ring pass-ring-a" aria-hidden="true" /><div className="pass-ring pass-ring-b" aria-hidden="true" />
-          <div className="pass-copy pass-copy-left"><p>ONE WEARABLE LAYER</p><h2>Identity that<br />stays current.</h2><span>New access, updates and alerts can arrive without issuing another card.</span></div>
-          <motion.div className="pass-card" style={{ y: credentialY, scale: credentialScale, rotate: credentialRotate }}><div className="pass-card-glow" /><img src={productImage} alt="Smart Lanyard digital identity card" /><i className="pass-light" /></motion.div>
-          <div className="pass-copy pass-copy-right"><p>LIVE WHEN NEEDED</p><div><span>01</span><b>Identity</b></div><div><span>02</span><b>Access</b></div><div><span>03</span><b>Care</b></div></div>
-          <div className="pass-scroll-note">SCROLL TO FOLLOW THE SIGNAL <ChevronRight aria-hidden="true" /></div>
+      <section className="future-transition" aria-label="Smart Lanyard signal transition">
+        <div className="transition-sticky">
+          <div className="signal-horizon" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+          <div className="signal-grid" aria-hidden="true" />
+          <div className="transition-copy transition-left"><p>FROM STATIC TO LIVE</p><h2>Identity starts<br />to <em>respond.</em></h2></div>
+          <motion.div className="abstract-core" initial={{ scale: 0.84, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7 }} aria-hidden="true"><span /><span /><span /><b><CircleDot /></b></motion.div>
+          <div className="transition-copy transition-right"><p>SYSTEM SIGNALS</p><span><b>01</b> Verify</span><span><b>02</b> Inform</span><span><b>03</b> Protect</span></div>
+          <div className="transition-scroll">SCROLL TO ENTER <ChevronDown aria-hidden="true" /></div>
         </div>
       </section>
 
-      <section className="modern-strip"><span>THE SMART LANYARD ADVANTAGE</span><div><b>01</b> IDENTITY <b>02</b> ACCESS <b>03</b> UPDATES <b>04</b> INSIGHTS</div></section>
-
-      <section className="solutions-section" id="solutions">
-        <div className="solutions-heading"><div><p>SMART LANYARD SOLUTIONS</p><h2>Built around<br /><em>real routines.</em></h2></div><span>Choose an environment to see the specific experiences the system can bring together.</span></div>
-        <div className="solution-switch" role="tablist"><button className={solution === "education" ? "active" : ""} onClick={() => setSolution("education")} role="tab" aria-selected={solution === "education"}><GraduationCap aria-hidden="true" />For Education</button><button className={solution === "enterprise" ? "active" : ""} onClick={() => setSolution("enterprise")} role="tab" aria-selected={solution === "enterprise"}><Building2 aria-hidden="true" />For Enterprise</button></div>
+      <section className="future-modes" id="modes">
+        <div className="modes-heading"><div><p className="eyebrow dark"><i /> BUILT FOR THE PEOPLE IN MOTION</p><h2>One platform.<br /><em>Two powerful contexts.</em></h2></div><p>Choose a world to see how a live credential can simplify the moments people move through every day.</p></div>
+        <div className="mode-switch" role="tablist"><button className={audience === "students" ? "active" : ""} onClick={() => setAudience("students")} role="tab" aria-selected={audience === "students"}><GraduationCap /> Students</button><button className={audience === "teams" ? "active" : ""} onClick={() => setAudience("teams")} role="tab" aria-selected={audience === "teams"}><Building2 /> Companies</button></div>
         <AnimatePresence mode="wait">
-          <motion.div className="solution-stage" key={solution} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} transition={{ duration: .32, ease: [0.23, 1, .32, 1] }}>
-            <aside className="solution-intro"><div className="solution-icon"><ActiveIcon aria-hidden="true" /></div><p>{active.tab.toUpperCase()} SOLUTION</p><h3>{active.title}</h3><span>{active.description}</span><button onClick={requestDemo}>Plan this deployment <ArrowUpRight aria-hidden="true" /></button></aside>
-            <div className="solution-groups">{active.groups.map((group, index) => { const Icon = group.icon; return <motion.article key={group.title} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .05 + index * .04, duration: .25 }}><div className="group-icon"><Icon aria-hidden="true" /></div><div><p><b>0{index + 1}</b> {group.title}</p><ul>{group.features.map((feature, featureIndex) => <li key={feature} className="solution-feature"><span>0{featureIndex + 1}</span><Check aria-hidden="true" />{feature}</li>)}</ul></div></motion.article>; })}</div>
+          <motion.div className="mode-stage" key={audience} initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -18 }} transition={{ duration: 0.36, ease: [0.23, 1, 0.32, 1] }}>
+            <aside className="mode-intro"><div className="mode-icon"><ActiveIcon /></div><p>{active.label}</p><h3>{active.name}</h3><span>{active.detail}</span><button onClick={requestDemo}>Plan this experience <ArrowUpRight /></button></aside>
+            <div className="mode-cards">{active.cards.map((card, index) => { const Icon = card.icon; return <motion.article key={card.title} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.06 + index * 0.07, duration: 0.32 }}><span className="mode-number">0{index + 1}</span><div className="mode-card-icon"><Icon /></div><h4>{card.title}</h4><p>{card.note}</p><div>{card.tags.map((tag) => <span key={tag}><Check />{tag}</span>)}</div></motion.article>; })}</div>
           </motion.div>
         </AnimatePresence>
       </section>
 
-      <section className="platform-section" id="platform">
-        <div className="platform-product" aria-hidden="true"><div className="platform-card-halo" /><img src={productImage} alt="" /></div>
-        <div className="platform-copy"><p>WHY IT FEELS DIFFERENT</p><h2>Information<br />that can move.</h2><span>A low-power E-Paper card turns useful information into a visible part of the day—then stays updated when the day changes.</span><div className="platform-pulse"><i /><b>Always ready for the next update</b></div></div>
-        <div className="value-grid">{valuePoints.map((item, index) => { const Icon = item.icon; return <motion.div key={item.label} initial={{ opacity: 0, scale: .96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: .3 }} transition={{ delay: index * .05, duration: .25 }}><Icon aria-hidden="true" /><span>{item.label}</span><b>0{index + 1}</b></motion.div>; })}</div>
+      <section className="future-system" id="system">
+        <div className="system-backdrop" aria-hidden="true"><span /><span /><span /></div>
+        <div className="system-heading"><p className="eyebrow"><i /> THE OPERATING LAYER</p><h2>Technology that<br />feels <em>human.</em></h2><p>Everything is designed to reduce friction around the everyday, while making important moments clearer and easier to act on.</p></div>
+        <div className="principle-list">{principles.map((principle, index) => { const Icon = principle.icon; return <motion.article key={principle.title} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ delay: index * 0.08, duration: 0.4 }}><span>{principle.index}</span><Icon /><h3>{principle.title}</h3><p>{principle.body}</p></motion.article>; })}</div>
       </section>
 
-      <section className="pain-section" id="why"><div className="pain-heading"><p>PAIN POINTS WE SOLVE</p><h2>Less friction.<br /><em>More certainty.</em></h2></div><div className="pain-grid">{painPoints.map((pain) => { const Icon = pain.icon; return <article key={pain.audience}><div className="pain-card-head"><Icon aria-hidden="true" /><span>{pain.audience}</span></div><h3>{pain.title}</h3><ul>{pain.items.map((item) => <li key={item}><i />{item}</li>)}</ul></article>; })}</div></section>
+      <section className="future-final" id="contact"><div className="final-grid" aria-hidden="true" /><div className="final-satellite satellite-one" aria-hidden="true" /><div className="final-satellite satellite-two" aria-hidden="true" /><div><p className="eyebrow"><i /> READY WHEN YOU ARE</p><h2>Give identity<br />a <em>better signal.</em></h2><p>Let’s design the first Smart Lanyard experience for your campus, workplace or community.</p><button className="future-primary" onClick={requestDemo}>Request a demo <ArrowUpRight /></button></div></section>
 
-      <section className="modern-final"><div className="final-backdrop" aria-hidden="true"><img src={productImage} alt="" /></div><div className="final-copy"><p><Sparkles aria-hidden="true" /> THE NEXT GENERATION OF IDENTITY</p><h2>Make every<br /><em>credential count.</em></h2><span>Start with one smart card—and a clearer way to connect the people, spaces and updates that keep your organisation moving.</span><button className="button-primary final-button" onClick={requestDemo}>Request a demo <ArrowUpRight aria-hidden="true" /></button></div></section>
-
-      <footer className="modern-footer"><div className="modern-brand"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></div><span>Education · Enterprise · Healthcare · Manufacturing · Government · Hospitality</span><b>© 2026 SMART LANYARD</b></footer>
+      <footer className="future-footer"><div className="future-brand"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></div><span>IDENTITY / ACCESS / AWARENESS</span><b>© 2026</b></footer>
     </main>
   );
 }

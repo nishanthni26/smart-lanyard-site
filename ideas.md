@@ -114,4 +114,8 @@ The active direction is a **clean contemporary enterprise interface**. It uses n
 
 The refinement uses **Figtree** for a more composed professional voice and IBM Plex Mono for system labels. The new transparent credential asset is the central physical object, with a scroll-led suspended-card transition that moves between identity, access and care rather than relying on decorative effects.
 
-**Modern Solutions** is the active design direction. Ink navy is the anchor, clear electric blue is the sole system/action accent, mint is reserved for live status, and verification-style panels use crisp edges and fine rules rather than soft SaaS cards.
+**Future Signal** is the active design direction. The near-black, spatial canvas is punctuated by electric blue for active system light and mint only for live-state status. The single physical credential is treated as a hero artifact; every later product moment is abstract signal geometry, not another repeated image. Typography uses Space Grotesk at a decisive oversized scale, while IBM Plex Mono denotes calibration and live system detail.
+
+## Style Decisions
+
+The use-case layer is a **dark verification plate**, integrated into the same cinematic product film rather than a pale SaaS interlude. Electric blue and cyan remain system-path and active-state light, not decorative headline fills. The logo is scaled into a more visible suspended-loop identity in the navigation and footer, while later content echoes the credential through structural lines, status points, material-dark panels, and control geometry rather than repeating the image.
