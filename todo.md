@@ -22,6 +22,12 @@
 - [x] Simplify the zoom-card treatment while preserving the feature-reveal interaction.
 - [x] Validate desktop and mobile composition, then save a refined delivery checkpoint.
 
+## ID-Card Removal
+
+- [x] Remove all credential cards, card silhouettes, wearer-card overlays, and card-based feature callouts.
+- [x] Preserve the hero, scroll sequence, and page spacing without empty or awkward card placeholders.
+- [x] Validate the card-free layout on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
