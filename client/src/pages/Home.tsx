@@ -1,357 +1,145 @@
 /**
- * Signal Noir design system: cinematic techno-minimalism with near-black fields,
- * controlled Signal Cyan, editorial asymmetry, and a physical lanyard credential motif.
+ * Paper and Cobalt redesign: warm mineral paper, ink-black hardware, cobalt system states,
+ * and a calm editorial product story with only purposeful motion.
  */
-import { Button } from "@/components/ui/button";
-import { AnimatePresence, motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowDownRight,
   ArrowUpRight,
-  BellRing,
+  BadgeCheck,
+  Bell,
   Building2,
-  CalendarDays,
-  Check,
+  CalendarClock,
   ChevronRight,
-  CircleAlert,
   Clock3,
-  ContactRound,
   Fingerprint,
   GraduationCap,
-  MapPin,
-  MessageSquareText,
-  Radio,
-  ScanLine,
+  MapPinned,
+  RadioTower,
+  ShieldAlert,
   ShieldCheck,
-  UserRoundCheck,
+  Sparkles,
+  UsersRound,
 } from "lucide-react";
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
 
-type Audience = "students" | "companies";
+type Audience = "education" | "workplace";
 
-const audienceData = {
-  students: {
-    eyebrow: "STUDENT SAFETY SYSTEM",
-    title: "More confidence in every school day.",
-    copy: "A connected credential that keeps students present, protected and in sync with the day ahead.",
+const productImage = "/manus-storage/smart-lanyard-card-reference_3f3554cd.png";
+const brandMark = "/manus-storage/smart-lanyard-mark_37d205d9.png";
+
+const audienceContent = {
+  education: {
+    tab: "Education",
+    short: "Campus rhythm, made clearer.",
+    summary: "Know when students arrive, engage and leave—without turning their day into a surveillance experience.",
+    label: "EDUCATION FLOW",
     icon: GraduationCap,
-    features: [
-      { title: "Real-time location tracking", icon: MapPin },
-      { title: "Instant attendance alerts to parents", icon: BellRing },
-      { title: "SOS emergency button", icon: CircleAlert },
-      { title: "Classroom engagement tracking", icon: ScanLine },
-      { title: "Digital timetable", icon: CalendarDays },
-      { title: "Safe arrival & departure notifications", icon: UserRoundCheck },
+    events: [
+      { time: "08:04", title: "Arrival recorded", caption: "Parent notification sent", icon: MapPinned },
+      { time: "09:15", title: "Classroom check-in", caption: "Attendance updated", icon: BadgeCheck },
+      { time: "13:42", title: "Support signal", caption: "SOS route ready", icon: ShieldAlert },
+      { time: "15:21", title: "Safe departure", caption: "Gate exit confirmed", icon: Bell },
     ],
   },
-  companies: {
-    eyebrow: "WORKPLACE OPERATIONS",
-    title: "One credential. A clearer workplace.",
-    copy: "Connect secure access, workforce visibility and safety response in one physical identity layer.",
+  workplace: {
+    tab: "Workplaces",
+    short: "The workplace, in sync.",
+    summary: "Bring access, presence and the operational signals your teams rely on into one simple wearable layer.",
+    label: "WORKPLACE FLOW",
     icon: Building2,
-    features: [
-      { title: "Unified access control", icon: Fingerprint },
-      { title: "Employee real-time location", icon: MapPin },
-      { title: "SOS and safety alerts", icon: CircleAlert },
-      { title: "Automated attendance", icon: Clock3 },
-      { title: "Remote card deactivation", icon: ShieldCheck },
-      { title: "Work notifications via Slack/Teams", icon: MessageSquareText },
+    events: [
+      { time: "08:32", title: "Entry approved", caption: "North lobby access", icon: Fingerprint },
+      { time: "10:00", title: "Team present", caption: "Zone occupancy updated", icon: UsersRound },
+      { time: "12:46", title: "Safety route open", caption: "Response team notified", icon: ShieldCheck },
+      { time: "17:18", title: "Shift complete", caption: "Secure exit logged", icon: Clock3 },
     ],
   },
 } as const;
 
-const steps = [
-  {
-    number: "01",
-    icon: ContactRound,
-    title: "Issue identities",
-    copy: "Assign each person a durable, connected credential in seconds.",
-  },
-  {
-    number: "02",
-    icon: Radio,
-    title: "Connect the day",
-    copy: "Link access, presence, notifications and safety into one signal.",
-  },
-  {
-    number: "03",
-    icon: ScanLine,
-    title: "See in real time",
-    copy: "Turn everyday movement into a clear, privacy-aware operational view.",
-  },
-  {
-    number: "04",
-    icon: ShieldCheck,
-    title: "Respond with clarity",
-    copy: "Make every arrival, alert and exception easier to act on.",
-  },
+const principles = [
+  { code: "01", title: "Presence", copy: "A quiet record of who is here, when it matters.", icon: RadioTower },
+  { code: "02", title: "Permission", copy: "Access stays appropriate as people and places change.", icon: Fingerprint },
+  { code: "03", title: "Response", copy: "The right alert reaches the right person with context.", icon: ShieldCheck },
 ];
 
-const displayModes = [
-  { label: "STUDENT MODE", primary: "Period 03", secondary: "Physics · Room 204", signal: "ON CAMPUS" },
-  { label: "CORPORATE MODE", primary: "08:45", secondary: "Design review · Level 5", signal: "ACCESS ACTIVE" },
-  { label: "HOSPITAL MODE", primary: "Ward 7", secondary: "Shift begins · 09:00", signal: "CARE TEAM" },
-  { label: "FACTORY MODE", primary: "Line A3", secondary: "Safety zone cleared", signal: "SITE READY" },
-];
-
-const heroImage = "/manus-storage/smart-lanyard-hero_60ef3c57.jpg";
-const lanyardImage = "/manus-storage/smart-lanyard-product_fdf29ba0.png";
-const detailImage = "/manus-storage/smart-lanyard-detail_f550f9ff.jpg";
-const brandMark = "/manus-storage/smart-lanyard-mark_37d205d9.png";
-const lanyardCardReference = "/manus-storage/smart-lanyard-card-reference_3f3554cd.png";
-
-function Magnetic({ children }: { children: ReactNode }) {
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-
-  return (
-    <motion.div
-      className="magnetic-wrap"
-      animate={offset}
-      transition={{ type: "spring", stiffness: 380, damping: 22, mass: 0.45 }}
-      onPointerMove={(event) => {
-        if (event.pointerType === "touch") return;
-        const rect = event.currentTarget.getBoundingClientRect();
-        setOffset({
-          x: ((event.clientX - rect.left) / rect.width - 0.5) * 9,
-          y: ((event.clientY - rect.top) / rect.height - 0.5) * 7,
-        });
-      }}
-      onPointerLeave={() => setOffset({ x: 0, y: 0 })}
-    >
-      {children}
-    </motion.div>
-  );
+function scrollTo(id: string) {
+  document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 export default function Home() {
-  const [audience, setAudience] = useState<Audience>("students");
-  const [scrolled, setScrolled] = useState(false);
-  const revealRef = useRef<HTMLElement>(null);
-  const pointerX = useMotionValue(0);
-  const pointerY = useMotionValue(0);
-  const displayRotateY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-11, 11]), { stiffness: 180, damping: 19 });
-  const displayRotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [8, -8]), { stiffness: 180, damping: 19 });
-  const { scrollYProgress } = useScroll({
-    target: revealRef,
-    offset: ["start end", "end start"],
-  });
-  const productY = useTransform(scrollYProgress, [0.08, 0.45, 0.82], [110, -15, 10]);
-  const productScale = useTransform(scrollYProgress, [0.08, 0.45, 0.82], [0.72, 1.05, 0.95]);
-  const productRotate = useTransform(scrollYProgress, [0.08, 0.45, 0.82], [-7, 1.5, -1]);
-  const activeData = audienceData[audience];
-  const AudienceIcon = activeData.icon;
-  useEffect(() => {
-    const updateScrollState = () => setScrolled(window.scrollY > 28);
-    updateScrollState();
-    window.addEventListener("scroll", updateScrollState, { passive: true });
-    return () => window.removeEventListener("scroll", updateScrollState);
-  }, []);
+  const [audience, setAudience] = useState<Audience>("education");
+  const productRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: productRef, offset: ["start end", "end start"] });
+  const cardY = useTransform(scrollYProgress, [0, 0.45, 1], [80, 0, -48]);
+  const cardRotate = useTransform(scrollYProgress, [0, 0.45, 1], [-5, 0, 5]);
+  const cardScale = useTransform(scrollYProgress, [0, 0.45, 1], [0.88, 1.04, 0.95]);
+  const active = audienceContent[audience];
+  const ActiveIcon = active.icon;
 
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const requestDemo = () => {
-    toast("Demo request noted", {
-      description: "Our team will help you map Smart Lanyard to your environment.",
-    });
-  };
+  const demo = () => toast("Demo request started", { description: "Tell us about your environment and we’ll map the first use case." });
 
   return (
-    <main className="signal-noir-page">
-      <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
-        <button className="brand-lockup" onClick={() => scrollTo("#top")} aria-label="Smart Lanyard home">
-          <img src={brandMark} alt="" className="brand-mark" />
-          <span>SMART LANYARD</span>
-        </button>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <button onClick={() => scrollTo("#audience-scene")}>Capabilities</button>
-          <button onClick={() => scrollTo("#how-it-works")}>How it works</button>
-        </nav>
-        <Magnetic><Button className="header-cta" onClick={requestDemo}>Request a demo <ArrowUpRight aria-hidden="true" /></Button></Magnetic>
+    <main className="v2-page">
+      <header className="v2-nav">
+        <button className="v2-brand" onClick={() => scrollTo("#top")} aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></button>
+        <div className="v2-nav-links"><button onClick={() => scrollTo("#journey")}>How it works</button><button onClick={() => scrollTo("#contexts")}>Use cases</button></div>
+        <button className="v2-nav-action" onClick={demo}>Talk to us <ArrowUpRight aria-hidden="true" /></button>
       </header>
 
-      <section
-        className="hero-section"
-        id="top"
-        aria-labelledby="hero-title"
-        onPointerMove={(event) => {
-          if (event.pointerType === "touch") return;
-          const rect = event.currentTarget.getBoundingClientRect();
-          pointerX.set((event.clientX - rect.left) / rect.width - 0.5);
-          pointerY.set((event.clientY - rect.top) / rect.height - 0.5);
-        }}
-        onPointerLeave={() => { pointerX.set(0); pointerY.set(0); }}
-      >
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-glow hero-glow-one" aria-hidden="true" />
-        <img src={brandMark} alt="" className="hero-symbol-watermark" aria-hidden="true" />
-        <div className="hero-card-reference" aria-hidden="true"><img src={lanyardCardReference} alt="" /></div>
-        <div className="hero-particles" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
-        <div className="hero-copy reveal-in">
-          <div className="eyebrow"><span className="status-dot" /> Connected identity layer</div>
-          <h1 id="hero-title">Smart<br /><span>Lanyard</span></h1>
-          <p className="hero-statement">Smart Identity. <em>Real-Time Visibility.</em></p>
-          <p className="hero-description">One smart lanyard for identity, access, safety and real-time visibility.</p>
-          <div className="hero-actions">
-            <Magnetic><Button className="primary-cta" onClick={requestDemo}>Request a Demo <ArrowUpRight aria-hidden="true" /></Button></Magnetic>
-            <button className="text-cta" onClick={() => scrollTo("#audience-scene")}>Explore the system <ChevronRight aria-hidden="true" /></button>
-          </div>
+      <section className="v2-hero" id="top">
+        <div className="v2-hero-label"><i />SMART IDENTITY SYSTEM <span>01 / 04</span></div>
+        <div className="v2-hero-copy">
+          <p className="v2-kicker">The everyday object<br />with a wider view.</p>
+          <h1>Know who’s<br /><em>in the moment.</em></h1>
+          <p className="v2-lede">Smart Lanyard brings identity, access and care into one considered system for the places people move through every day.</p>
+          <div className="v2-hero-actions"><button className="v2-primary" onClick={demo}>Request a walkthrough <ArrowUpRight aria-hidden="true" /></button><button className="v2-secondary" onClick={() => scrollTo("#contexts")}>See the system <ChevronRight aria-hidden="true" /></button></div>
         </div>
-        <div className="hero-person-wrap" aria-hidden="true">
-          <img src={heroImage} alt="" className="hero-person" />
-          <div className="person-shadow" />
-          <div className="person-scanline" />
+        <div className="v2-hero-art" aria-hidden="true">
+          <div className="v2-paper-arc" />
+          <div className="v2-card-shadow" />
+          <img src={productImage} alt="" className="v2-hero-card" />
+          <div className="v2-live-chip"><i /><span>ACTIVE / 98.4%</span></div>
+          <div className="v2-position-line"><span>PERSONAL IDENTITY</span><i /></div>
         </div>
-        <div className="hero-meta hero-meta-left"><span>LIVE IDENTITY</span><b>01 — 04</b></div>
-        <div className="hero-meta hero-meta-right"><span>SCROLL TO REVEAL</span><ArrowDownRight aria-hidden="true" /></div>
+        <div className="v2-hero-foot"><span>IDENTITY · ACCESS · SAFETY · PRESENCE</span><button onClick={() => scrollTo("#journey")}>SCROLL TO EXPLORE <ArrowDownRight aria-hidden="true" /></button></div>
       </section>
 
-      <section className="product-reveal dual-audience-reveal" ref={revealRef} id="audience-scene" aria-label="Student and company Smart Lanyard features">
-        <div className="reveal-sticky">
-          <svg className="cinematic-trace" viewBox="0 0 1280 720" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 472 H208 C276 472 282 424 345 424 H520 C572 424 580 458 637 458 H830 C902 458 895 395 968 395 H1280" />
-            <circle cx="208" cy="472" r="3" /><circle cx="637" cy="458" r="3" /><circle cx="968" cy="395" r="3" />
-          </svg>
-          <div className="reveal-coordinates" aria-hidden="true"><span>AXIS / 49.12</span><span>LINK / SECURE</span><span>NODE / 03</span></div>
-          <div className="reveal-technical reveal-technical-left"><span>CONNECTED</span><i /><span>SECURE</span></div>
-          <div className="reveal-technical reveal-technical-right"><span>IDENTITY</span><i /><span>VISIBLE</span></div>
-          <motion.div className="dual-feature-panel dual-feature-panel-students" initial={{ opacity: 0, x: -28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}>
-            <div className="dual-feature-panel-head"><GraduationCap aria-hidden="true" /><span>FOR STUDENTS</span></div>
-            <h3>Safer,<br />more connected days.</h3>
-            <div className="dual-feature-list">{audienceData.students.features.map((feature, index) => { const FeatureIcon = feature.icon; return <motion.div key={feature.title} initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: .12 + index * .055, duration: .25 }}><span>0{index + 1}</span><FeatureIcon aria-hidden="true" /><b>{feature.title}</b></motion.div>; })}</div>
-          </motion.div>
-          <motion.div className="product-stage product-reference-stage" style={{ y: productY, scale: productScale, rotate: productRotate }}>
-            <div className="signal-halo" />
-            <div className="product-orbit product-orbit-one" />
-            <div className="product-orbit product-orbit-two" />
-            <div className="reference-card-frame"><img src={lanyardCardReference} alt="Smart Lanyard hardware reference" /></div>
-            <span className="product-cue product-cue-one"><i />CONNECTED DEVICE</span>
-            <span className="product-cue product-cue-two"><i />LIVE STATUS</span>
-          </motion.div>
-          <motion.div className="dual-feature-panel dual-feature-panel-companies" initial={{ opacity: 0, x: 28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}>
-            <div className="dual-feature-panel-head"><Building2 aria-hidden="true" /><span>FOR COMPANIES</span></div>
-            <h3>One credential.<br />Clearer operations.</h3>
-            <div className="dual-feature-list">{audienceData.companies.features.map((feature, index) => { const FeatureIcon = feature.icon; return <motion.div key={feature.title} initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: .12 + index * .055, duration: .25 }}><span>0{index + 1}</span><FeatureIcon aria-hidden="true" /><b>{feature.title}</b></motion.div>; })}</div>
-          </motion.div>
-          <div className="reveal-title-wrap">
-            <p className="eyebrow centered-eyebrow">One product, two environments</p>
-            <h2>Made for every<br />day in motion.</h2>
-          </div>
-        </div>
+      <section className="v2-band" aria-label="Smart Lanyard capabilities"><span>IDENTITY</span><i /><span>ACCESS</span><i /><span>SAFETY</span><i /><span>CONTEXT</span><i /><span>CONTINUITY</span></section>
+
+      <section className="v2-product-section" id="journey" ref={productRef}>
+        <div className="v2-product-intro"><span>THE LAYER BENEATH THE DAY</span><p>Built to be worn. Designed to make the invisible parts of a day easier to understand.</p></div>
+        <motion.div className="v2-product-object" style={{ y: cardY, rotate: cardRotate, scale: cardScale }}>
+          <div className="v2-object-aura" />
+          <img src={productImage} alt="Smart Lanyard credential" />
+          <span className="v2-object-tag tag-one">SECURE MOUNT</span><span className="v2-object-tag tag-two">STATUS LIGHT</span><span className="v2-object-tag tag-three">PERSONAL CONTEXT</span>
+        </motion.div>
+        <div className="v2-product-copy"><h2>More than<br />a badge.</h2><p>It is a physical starting point for the information that helps a campus or workplace run with more awareness and less friction.</p><div><span>01</span><i /><span>ONE OBJECT / MANY USEFUL SIGNALS</span></div></div>
       </section>
 
-      <motion.section className="audience-section" id="features" aria-labelledby="audience-title" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}>
-        <div className="section-rail"><span>02</span><i /><span>WHO IT SERVES</span></div>
-        <div className="audience-intro">
-          <p className="eyebrow">One wearable system, tailored context</p>
-          <h2 id="audience-title">A clearer signal for<br /><em>every movement.</em></h2>
-        </div>
-        <div className="audience-toggle" role="tablist" aria-label="Choose your audience">
-          <button
-            className={audience === "students" ? "active" : ""}
-            onClick={() => setAudience("students")}
-            role="tab"
-            aria-selected={audience === "students"}
-          >
-            <GraduationCap aria-hidden="true" /> <span>For Students</span><b>01</b>
-          </button>
-          <button
-            className={audience === "companies" ? "active" : ""}
-            onClick={() => setAudience("companies")}
-            role="tab"
-            aria-selected={audience === "companies"}
-          >
-            <Building2 aria-hidden="true" /> <span>For Companies</span><b>02</b>
-          </button>
-        </div>
+      <section className="v2-context-section" id="contexts">
+        <div className="v2-context-heading"><p>DESIGNED FOR REAL ENVIRONMENTS</p><h2>Same object.<br /><em>Different care.</em></h2><span>Choose a context to see a day unfold.</span></div>
+        <div className="v2-context-tabs" role="tablist"><button className={audience === "education" ? "active" : ""} onClick={() => setAudience("education")} role="tab" aria-selected={audience === "education"}><GraduationCap aria-hidden="true" />Education</button><button className={audience === "workplace" ? "active" : ""} onClick={() => setAudience("workplace")} role="tab" aria-selected={audience === "workplace"}><Building2 aria-hidden="true" />Workplaces</button></div>
+        <AnimatePresence mode="wait">
+          <motion.div className="v2-context-stage" key={audience} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} transition={{ duration: .34, ease: [0.23, 1, .32, 1] }}>
+            <div className="v2-context-overview"><div className="v2-context-icon"><ActiveIcon aria-hidden="true" /></div><p>{active.label}</p><h3>{active.short}</h3><span>{active.summary}</span><button onClick={demo}>Discuss this use case <ArrowUpRight aria-hidden="true" /></button></div>
+            <div className="v2-dayline"><div className="v2-dayline-head"><span>LIVE DAY LINE</span><i /> <b>LOCAL TIME</b></div>{active.events.map((event, index) => { const EventIcon = event.icon; return <motion.article key={event.title} initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .08 + index * .07, duration: .28 }}><time>{event.time}</time><div className="v2-event-icon"><EventIcon aria-hidden="true" /></div><div><strong>{event.title}</strong><small>{event.caption}</small></div><i className="v2-event-dot" /></motion.article>; })}</div>
+          </motion.div>
+        </AnimatePresence>
+      </section>
 
-        <div className="audience-stage">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={audience}
-              className="audience-content"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.32, ease: [0.23, 1, 0.32, 1] }}
-            >
-              <div className="audience-copy">
-                <div className="audience-icon"><AudienceIcon aria-hidden="true" /></div>
-                <p className="eyebrow">{activeData.eyebrow}</p>
-                <h3>{activeData.title}</h3>
-                <p>{activeData.copy}</p>
-                <button className="underlined-cta" onClick={requestDemo}>See your use case <ArrowUpRight aria-hidden="true" /></button>
-              </div>
-              <div className="feature-list" role="tabpanel">
-                {activeData.features.map((feature, index) => {
-                  const FeatureIcon = feature.icon;
-                  return (
-                    <motion.div
-                      className="feature-row"
-                      key={feature.title}
-                      initial={{ opacity: 0, x: 16 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.08 + index * 0.055, duration: 0.25 }}
-                    >
-                      <span className="feature-index">0{index + 1}</span>
-                      <FeatureIcon aria-hidden="true" />
-                      <span>{feature.title}</span>
-                      <Check aria-hidden="true" className="feature-check" />
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </motion.section>
+      <section className="v2-principles">
+        <div className="v2-principles-lead"><p>CALM BY DESIGN</p><h2>Signals that<br />earn their place.</h2></div>
+        <div className="v2-principles-grid">{principles.map((principle, index) => { const Icon = principle.icon; return <motion.article key={principle.code} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .4 }} transition={{ delay: index * .09, duration: .36 }}><span>{principle.code}</span><Icon aria-hidden="true" /><h3>{principle.title}</h3><p>{principle.copy}</p></motion.article>; })}</div>
+      </section>
 
-      <motion.section className="process-section" id="how-it-works" aria-labelledby="process-title" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}>
-        <div className="process-header">
-          <div>
-            <p className="eyebrow">From issue to insight</p>
-            <h2 id="process-title">Every day,<br /><em>in clearer focus.</em></h2>
-          </div>
-          <p>Smart Lanyard turns a familiar item into a calm, connected operating layer for the spaces people share.</p>
-        </div>
-        <div className="steps-wrap">
-          <div className="step-connector" aria-hidden="true"><span /></div>
-          {steps.map((step, index) => {
-            const StepIcon = step.icon;
-            return (
-              <motion.article className="step-card" key={step.number} initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.35, delay: index * 0.06, ease: [0.23, 1, 0.32, 1] }}>
-                <div className="step-number">{step.number}</div>
-                <div className="step-icon"><StepIcon aria-hidden="true" /></div>
-                <h3>{step.title}</h3>
-                <p>{step.copy}</p>
-                <span className="step-tail"><i />{index === steps.length - 1 ? "READY" : "NEXT"}</span>
-              </motion.article>
-            );
-          })}
-        </div>
-      </motion.section>
+      <section className="v2-cta">
+        <div className="v2-cta-art" aria-hidden="true"><img src={productImage} alt="" /><div /></div>
+        <div className="v2-cta-copy"><p><Sparkles aria-hidden="true" /> START WITH ONE BETTER DAY</p><h2>See the day<br /><em>with more context.</em></h2><span>We’ll help you choose a first environment, map the signals that matter and keep the experience human.</span><button className="v2-primary v2-primary-light" onClick={demo}>Plan a demo <ArrowUpRight aria-hidden="true" /></button></div>
+      </section>
 
-      <motion.section className="cta-section" aria-labelledby="cta-title" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}>
-        <img src={detailImage} alt="" className="cta-detail" />
-        <div className="cta-overlay" />
-        <div className="cta-content">
-          <p className="eyebrow"><span className="status-dot" /> YOUR NEXT CLEAR SIGNAL</p>
-          <h2 id="cta-title">Bring every<br /><em>moment into view.</em></h2>
-          <p>See how Smart Lanyard can make identity, safety and visibility work as one.</p>
-          <div className="cta-actions">
-            <Magnetic><Button className="primary-cta" onClick={requestDemo}>Request a Demo <ArrowUpRight aria-hidden="true" /></Button></Magnetic>
-            <a href="mailto:hello@smartlanyard.com" className="contact-link">Contact us <ArrowUpRight aria-hidden="true" /></a>
-          </div>
-        </div>
-        <div className="cta-corner" aria-hidden="true"><span>SL</span><i /></div>
-      </motion.section>
-
-      <footer className="site-footer">
-        <div className="brand-lockup footer-brand"><img src={brandMark} alt="" className="brand-mark" /><span>SMART LANYARD</span></div>
-        <p>Smart identity for the places people move through.</p>
-        <span>© 2026 SMART LANYARD</span>
-      </footer>
+      <footer className="v2-footer"><div className="v2-brand"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></div><span>Identity systems for places in motion.</span><b>© 2026</b></footer>
     </main>
   );
 }

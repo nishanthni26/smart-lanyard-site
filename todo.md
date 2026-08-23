@@ -35,6 +35,13 @@
 - [x] Present Student features on the left and Company features on the right, with separate entrance animations and readable grouping.
 - [x] Validate desktop and mobile composition, then save a delivery checkpoint.
 
+## Full Website Redesign
+
+- [x] Replace the current visual system with a fresh palette, typography, composition, and non-repetitive content structure.
+- [x] Create a purposeful hero, product context, audience use-case interaction, operational flow, and final call to action.
+- [x] Add premium but restrained motion that supports hierarchy and respects reduced-motion settings.
+- [x] Validate desktop and mobile experience, then save a redesigned delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
