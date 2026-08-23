@@ -194,6 +194,12 @@
 - [x] Make the core product, school, workplace, safety, and FAQ messages easy to understand at a glance.
 - [x] Validate the simplified language together with both visual themes before publishing.
 
+## Brand Visibility
+
+- [x] Increase header and footer logo/company-name scale while preserving a balanced navigation layout.
+- [x] Strengthen light and dark mode contrast for the logo and company name.
+- [x] Validate desktop/mobile brand visibility and save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
