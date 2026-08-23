@@ -130,6 +130,10 @@ The use-case and trust chapters are now treated as **dark verification plates**:
 
 Editorial Hardware is the controlling system. Cobalt is reserved for decisive actions, active context, key proof and the hero’s identity statement. Every major chapter now inherits one credential-derived structural motif—strap, loop, clip edge, signal dot or verification rail—so the brand remains tangible without repeating the product image.
 
+## ID Journey Redesign
+
+**ID Journey** is the new governing system. It uses UI UX Pro Max’s scroll-storytelling guidance with a teal, amber and ivory palette chosen for an education and workplace technology product. The product narrative is organized as: promise, three credential states, context-specific outcomes, operating model, and final demonstration CTA. Motion is limited to a single animated credential, context-state transitions, and in-view step reveals; every chapter remains readable without animation and respects reduced-motion preferences.
+
 ## Style Decisions
 
 The use-case layer is a **dark verification plate**, integrated into the same cinematic product film rather than a pale SaaS interlude. Electric blue and cyan remain system-path and active-state light, not decorative headline fills. The logo is scaled into a more visible suspended-loop identity in the navigation and footer, while later content echoes the credential through structural lines, status points, material-dark panels, and control geometry rather than repeating the image.
