@@ -318,6 +318,12 @@
 - [x] Confirmed the lower card placement remains balanced with hero copy at desktop and mobile breakpoints.
 - [x] Verify the updated desktop and mobile hero balance, then save a delivery checkpoint.
 
+## Hero Image Removal
+
+- [x] Remove the selected identity-card image from the hero and preserve a balanced responsive composition.
+- [x] Confirmed the selected image is absent and the simplified hero remains balanced at desktop and mobile breakpoints.
+- [x] Verify the simplified hero at desktop and mobile sizes, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
