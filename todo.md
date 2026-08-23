@@ -128,6 +128,12 @@
 - [x] Simplify copy, composition, and motion while retaining the Students/Companies feature toggle.
 - [x] Validate desktop/mobile clarity and save a delivery checkpoint.
 
+## Content Clarity Revision
+
+- [x] Reduce the page to one simple explanation of what the Smart Lanyard is and what it does.
+- [x] Consolidate detailed feature cards into fewer, clearer benefit groups for Students and Companies.
+- [x] Make the primary action and contact path unambiguous, then validate desktop/mobile comprehension.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

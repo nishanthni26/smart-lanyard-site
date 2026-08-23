@@ -1,151 +1,97 @@
-# Smart Lanyard — Design Directions
+# Smart Lanyard — Active Design Direction
 
 ## Approach 1
 
-**Theme Name:** Signal Noir
+**Theme Name:** Friendly Daylight
 
-**Very Brief Intro:** A cinematic product world where a wearable credential emerges from shadow, suspension, and atmospheric light. The page feels like a controlled reveal rather than a conventional SaaS landing page.
+**Very Brief Intro:** A warm, simple product site that makes a connected lanyard feel familiar on first glance. It prioritizes clear explanations, calm confidence, and a helpful human presence.
 
-**Probability:** 0.07
+**Probability:** 0.06
 
 ## Approach 2
 
-**Theme Name:** Institutional Future
+**Theme Name:** Clear Campus
 
-**Very Brief Intro:** A precise, technical interface inspired by secure buildings and contemporary wayfinding systems. Structured information and restrained data motifs emphasize trust and operational clarity.
+**Very Brief Intro:** An airy education-and-workplace system based on clear signposting, easy scanning, and reassuring information groups. It feels orderly without becoming technical or corporate.
 
-**Probability:** 0.04
+**Probability:** 0.03
 
 ## Approach 3
 
-**Theme Name:** Luminous Utility
+**Theme Name:** Everyday Companion
 
-**Very Brief Intro:** A clean, graphite-and-cyan presentation that treats the lanyard as a calm everyday safety companion. It balances premium material cues with approachable human context.
+**Very Brief Intro:** A human-first identity product story where the lanyard is an unobtrusive tool that supports ordinary arrivals, access and safer movement. The tone is quiet and supportive.
 
-**Probability:** 0.09
+**Probability:** 0.08
 
 ---
 
-# Chosen Direction: Signal Noir
+# Chosen Direction: Friendly Daylight
 
 ## Design Movement
 
-**Cinematic techno-minimalism** with references to contemporary industrial-product films and luxury hardware launches. The page progresses like a camera move: human context first, then a suspended product reveal, then crisp operational proof.
+**Warm product optimism** with a content-first landing-page structure. The page must feel simple and understandable, not futuristic, cinematic, technical, or overly styled.
 
 ## Core Principles
 
-1. **Reveal over explanation:** Information unfolds in measured sequences as the lanyard becomes the visual anchor.
-2. **Light as interface:** Soft cyan illumination is reserved for active states, product edges, and moments of assurance.
-3. **Tactile precision:** Glass, metal, satin fabric, and dark graphite surfaces convey a physical product, not a generic dashboard.
-4. **Intentional asymmetry:** Editorial offsets and structured negative space guide the eye without a repetitive centered-card layout.
+1. **Explain before decorating:** A visitor should understand what the lanyard does from the hero and first supporting section.
+2. **Group by outcome:** Detailed functions live beneath three plain-language benefits, not in a long unprioritized list.
+3. **Keep one decision at a time:** The Schools/Companies control shows one relevant set of information, with a single direct next step.
+4. **Make confidence feel human:** Use visible people, plain verbs, and familiar examples rather than surveillance or technical jargon.
 
 ## Color Philosophy
 
-The foundation is near-black with deep navy undertones, offering the lanyard and active cyan signal room to breathe. Cyan is a directional light, not a decorative wash; restrained electric-blue highlights indicate real-time status and interaction. Off-white copy keeps long-form content calm and highly legible.
+Cream and white create room for calm reading. Everyday Teal is the dependable action color, while gentle mint, sky, yellow and coral distinguish moments without making the page feel busy or science-fiction-like.
 
 ## Layout Paradigm
 
-The page follows a **vertical product film**. A wide, asymmetric opening stages a person to the right while editorial copy occupies the left. The next section locks the lanyard at center stage with a visual orbit. Feature content then sits alongside an anchored product silhouette rather than in a conventional centered grid. The closing CTA expands across the screen like a clean terminal panel.
+The story follows a five-part explanation: **what it is**, **what it does**, **who it helps**, **how it works**, and **what to do next**. Each part answers only one question.
 
 ## Signature Elements
 
-1. **Signal halo:** A diffused cyan radial aura behind the lanyard, used only for active product moments.
-2. **Calibration marks:** Fine blueprint-like rules, coordinates, and status dots that quietly frame content sections.
-3. **Suspended credential:** A crafted ID-card-and-lanyard visual that slowly oscillates and gains focus during scroll.
+1. Soft color circles that frame rather than compete with content.
+2. One friendly wearer photograph in the opening.
+3. One focused credential study with a small active-status tag.
 
 ## Interaction Philosophy
 
-Every interactive choice should feel like confirming a secure system state. Buttons compress subtly when pressed, toggles slide with a bright signal rail, and feature changes crossfade with short directional movement. Interactions reinforce confidence instead of performing for attention.
+Interactions are obvious and low effort. The audience switch changes only the three grouped outcomes for the selected audience. Primary buttons all lead to a request-demo conversation; secondary buttons reveal the next section.
 
 ## Animation
 
-Use motion with **transforms and opacity** only. The hero subject gently rises into frame, while the scroll-reveal lanyard shifts forward, settles at center, and receives a calm breathing halo. Audience panels enter with a 40–60ms item cascade and a slight horizontal offset. Buttons respond in 120–180ms with a 0.97 active scale. All non-essential movement is disabled for reduced-motion preferences.
+Use short 280–500ms fades and small vertical movement for section entrances, plus a subtle product float. No cinematic scroll effects, orbits, glow grids, or decorative motion. Respect reduced-motion preferences.
 
 ## Typography System
 
-**Manrope** supplies human, high-legibility body copy and interface labels. **Space Grotesk** provides the editorial display voice with strong geometric forms. Display headlines use tight tracking, large scale, and a strong weight contrast; utility labels are uppercase with expanded tracking and modest cyan accents.
+**Nunito Sans** provides an open, friendly, readable voice. Headlines are large enough to scan but stay clear and sentence-led. Labels are short and reserved for navigation or section orientation.
 
 ## Brand Essence
 
-**Smart Lanyard is the quiet, always-aware identity layer for safer campuses and more responsive workplaces.**
+**A familiar smart lanyard that makes identity, access and safety easier to understand and manage in schools and workplaces.**
 
-Personality adjectives: **assured, intelligent, composed.**
+Personality adjectives: **friendly, clear, dependable.**
 
 ## Brand Voice
 
-Headlines are concise and declarative; CTAs are direct and operational; microcopy sounds observant and reassuring rather than over-promotional. Avoid generic filler, hype, and vague claims.
+Headlines use plain language and concise verbs. CTAs name the actual next action. Avoid broad claims, surveillance language, technical metaphors, or soft filler.
 
-Example lines:
+> One lanyard for identity, access and safety.
 
-> Identity that keeps the whole day in view.
-
-> Give every arrival, access point, and alert a clearer signal.
+> Help students arrive, learn and leave safely.
 
 ## Wordmark & Logo
 
-The mark is a **suspended credential loop**: a short cyan lanyard line passes through a dark graphite card with a pinpoint signal at its center. The wordmark uses custom-spaced Space Grotesk capitals, where the “A” crossbar echoes the credential loop.
+The loop-and-card symbol remains compact and recognisable beside a simple uppercase wordmark. It appears clearly in the navigation and footer, without becoming a decorative pattern.
 
 ## Signature Brand Color
 
-**Signal Cyan — #73E3F2**
+**Everyday Teal — #187F7B**
 
 ## Style Decisions
 
-- Keep cyan concentrated around real-time states and the lanyard product silhouette; do not use broad cyan gradients as a page background.
-- Use deep navy-black fields with very subtle radial texture and fine technical divider lines to establish depth.
-- Favor intentional editorial negative space and offset alignment over repeated centered rounded cards.
-- The only pale surface is a restrained blueprint/verification insert; near-black cinematic graphite remains the dominant atmosphere from hero through CTA.
-- Product-reveal moments show the credential as a physical suspended object with cyan edge light, a controlled signal halo, calibration marks, and tactile material detail.
-- Reusable information areas read as secure operational panels with fine rules, coordinates, and status indicators rather than conventional SaaS tabs or generic icon cards.
-- Signal Cyan is treated as active light—reserved for credential edges, status dots, active controls, small numerals, and live-system signals rather than broad display text.
-- The credential is the dominant physical object in every product reveal, framed by its woven loop, cyan edge lighting, and calibration geometry.
-- The credential silhouette, woven strap texture, or graphite edge detail reappears throughout the page so the story remains a physical-product film rather than a software dashboard.
-- The reference-inspired card is deliberately restrained: a slim blue strap, compact mount, charcoal frame, portrait window, and a minimal identity stack; it must never overpower the wearer or headline.
-
-## Redesign Direction: Paper and Cobalt
-
-This version leaves the prior navy/cyan system behind for a **warm mineral-paper, ink-black, cobalt, and coral** palette. The product story is editorial rather than dashboard-like: a single hardware portrait opens the page, a vertical product study clarifies the object, and a switchable operational day line demonstrates the system across education and workplaces. Motion supports the narrative through gentle product drift, tab transitions, and staged event entries—never decorative repetition.
-
-The closing section stays within this system: mineral paper carries the final message, cobalt retains action authority, and coral is only used for an editorial physical offset. Yellow is intentionally excluded.
-
-## Modern Solutions Direction
-
-The active direction is a **clean contemporary enterprise interface**. It uses neutral white and mist surfaces, ink-navy depth, one electric-indigo system color, and a mint status indicator. Content is organized around real solution categories—Education and Enterprise—with a single interactive view for each, preventing long repeated lists. Product imagery is treated as a tactile device reference; animation is limited to audience transitions, card entrances, and responsive hover feedback.
-
-The refinement uses **Figtree** for a more composed professional voice and IBM Plex Mono for system labels. The new transparent credential asset is the central physical object, with a scroll-led suspended-card transition that moves between identity, access and care rather than relying on decorative effects.
-
-**Future Signal** is the active design direction. The near-black, spatial canvas is punctuated by electric blue for active system light and mint only for live-state status. The single physical credential is treated as a hero artifact; every later product moment is abstract signal geometry, not another repeated image. Typography uses Space Grotesk at a decisive oversized scale, while IBM Plex Mono denotes calibration and live system detail.
-
-## Orbit Interface Refinement
-
-The current UI direction is **Orbit Interface**: spatial blue light, controlled glass-depth surfaces, and tactile motion only where it clarifies the system. The hero credential has a pointer-responsive tilt; all further product storytelling uses abstract orbits, signal streams, verification nodes and animated state transitions. The UI abandons generic rounded SaaS cards in favor of fine technical lines, panel segmentation and interaction-aware status language.
-
-The use-case and trust chapters are now treated as **dark verification plates**: nested dark panels, signal rails, calibration grids, status nodes and operational labels keep the product story inside one continuous space. The suspended-loop logo is raised in the navigation and footer and echoed by the orbit and node geometry across the page.
-
-## Editorial Hardware Rebuild
-
-**Editorial Hardware** replaces the prior motion-heavy interface. The direction is confident, quiet and product-literate: warm paper surfaces, ink-black structure, cobalt used only as authority, and no dashboard decoration. A single credential image is staged as a physical artifact; the rest of the story relies on typography, proportion, hierarchy, simple rules and evidence-led interaction. Motion is now reserved for context switching and small, natural entrances.
-
-## Style Decisions
-
-Editorial Hardware is the controlling system. Cobalt is reserved for decisive actions, active context, key proof and the hero’s identity statement. Every major chapter now inherits one credential-derived structural motif—strap, loop, clip edge, signal dot or verification rail—so the brand remains tangible without repeating the product image.
-
-## ID Journey Redesign
-
-**ID Journey** is the new governing system. It uses UI UX Pro Max’s scroll-storytelling guidance with a teal, amber and ivory palette chosen for an education and workplace technology product. The product narrative is organized as: promise, three credential states, context-specific outcomes, operating model, and final demonstration CTA. Motion is limited to a single animated credential, context-state transitions, and in-view step reveals; every chapter remains readable without animation and respects reduced-motion preferences.
-
-## Signal Noir Rebuild
-
-**Design Movement:** Cinematic techno-minimalism for physical identity hardware. **Core Principles:** make the wearer visible before the system, let the credential become the hero after scroll, use cyan as live-state light, and preserve generous dark negative space. **Color Philosophy:** black and deep navy form the quiet physical world; soft cyan and blue communicate active intelligence rather than decoration. **Layout Paradigm:** a five-chapter vertical product film—wearer, floating credential, audience-specific outcomes, system steps, and a direct CTA. **Signature Elements:** calibration grid, soft credential halo, and small monospaced live-status labels. **Interaction Philosophy:** clicks change only the audience information state; scroll moves the story from person to credential. **Animation:** slow float, controlled reveal, and 280–650ms state transitions with reduced-motion fallbacks. **Typography:** Sora for large product statements and DM Mono for operational labels. **Brand Essence:** A connected credential for schools and workplaces that need identity, access and safety to feel like one system. **Brand Voice:** concise, informed, reassuring; examples: “One object. Many signals.” and “Make everyday moments clearer.” **Wordmark & Logo:** the suspended credential-loop symbol paired with precise compact uppercase wordmark. **Signature Brand Color:** Live Signal Cyan (#86E8F2).
-
-### Style Decisions
-
-Signal Cyan is reserved for live credential intelligence: active controls, primary action, status dots, fine signal rails and the credential halo. The hero card and scroll reveal are the only photographic hardware artifacts; the credential chapter uses measurement geometry and an enlarged suspended object to maintain product-film tension. Hero copy uses brand-specific phrasing such as “Follow the credential,” and the compact loop symbol is deliberately enlarged in the header and footer lockups.
-
-## Friendly Daylight Redesign
-
-**Design Movement:** Warm product optimism with simple approachable UI. **Core Principles:** make each explanation feel easy, use soft colors and rounded surfaces sparingly, retain clear helpful hierarchy, and keep motion calm. **Color Philosophy:** creamy white leaves room to breathe; teal provides dependable clarity; mint, sky, yellow and coral make individual moments friendly rather than technical. **Layout Paradigm:** a simple welcome, a short explanation of the card, one switchable use-case section, a four-step guide, and one uncomplicated invitation to talk. **Signature Elements:** friendly color bubbles, rounded photo frame, and small “active” card tags. **Interaction Philosophy:** one clear selection at a time, with generous tap targets and gentle transitions. **Animation:** brief 280–500ms content entrances and an unhurried card float, disabled for reduced motion. **Typography:** Nunito Sans for warmth and clear readability. **Brand Essence:** A friendly smart credential that helps schools and workplaces make everyday routines easier and safer. **Brand Voice:** warm, clear, reassuring; examples: “One small card. A whole lot of help.” and “Let’s make the day feel a little easier.” **Signature Brand Color:** Everyday Teal (#187F7B).
-
-## Style Decisions
-
-The use-case layer is a **dark verification plate**, integrated into the same cinematic product film rather than a pale SaaS interlude. Electric blue and cyan remain system-path and active-state light, not decorative headline fills. The logo is scaled into a more visible suspended-loop identity in the navigation and footer, while later content echoes the credential through structural lines, status points, material-dark panels, and control geometry rather than repeating the image.
+- Friendly Daylight is the only active direction; all dark, cinematic, sci-fi, verification-plate, and futuristic directions are deprecated.
+- The hero always states the product in plain language: one lanyard for identity, access and safety.
+- The first supporting section uses a four-job explanation: identity, access, attendance and safety.
+- Schools and Companies each use three grouped outcomes; feature names appear as small supporting tags inside those groups.
+- The four-step section explains setup, wearing, everyday use, and helpful updates in that order.
+- The user sees one primary request-demo action consistently through the page.
