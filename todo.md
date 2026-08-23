@@ -305,6 +305,13 @@
 - [x] Confirmed the cleaner hero and word-attached thread remain clear at desktop and mobile breakpoints.
 - [x] Verify the refined hero at desktop and mobile sizes, then save a delivery checkpoint.
 
+## Responsive Hero Card Placement
+
+- [x] Place the identity card beside the word “matter” in the mobile hero.
+- [x] Keep the identity card centered and upright in the desktop hero.
+- [x] Confirmed the upright desktop and word-adjacent mobile card placements are clear at their target breakpoints.
+- [x] Verify the responsive card placements on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
