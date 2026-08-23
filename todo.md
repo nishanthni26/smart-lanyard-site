@@ -284,6 +284,13 @@
 - [x] Confirmed the frame-free hero identity card and supporting transitioned image remain clear at desktop and mobile sizes.
 - [x] Verify both image treatments on desktop and mobile, then save a delivery checkpoint.
 
+## Hero Scale and Product Image Simplification
+
+- [x] Enlarge the hero identity-card image while retaining readable hero copy and responsive spacing.
+- [x] Remove the secondary supporting image from the product section and keep the live-status device as the sole product visual.
+- [x] Confirmed the enlarged hero card is clear and the product section contains only the live-status device at desktop and mobile breakpoints.
+- [x] Verify desktop and mobile layouts, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
