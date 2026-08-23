@@ -219,6 +219,12 @@
 - [x] Add a simple Team section featuring Nishanth, Priya, and Srikanth.
 - [x] Validate the corrected brand header and Team section on desktop and mobile, then save a delivery checkpoint.
 
+## Motion Enhancement
+
+- [x] Add subtle, purposeful hero and section-reveal motion that supports the content hierarchy.
+- [x] Add refined interactive feedback to team cards, solution cards, and primary buttons.
+- [x] Validate desktop/mobile animation quality and reduced-motion behavior, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
