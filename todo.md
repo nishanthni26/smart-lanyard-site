@@ -248,6 +248,11 @@
 - [x] Redesign the roadmap section into a clearer, more polished presentation of current and upcoming capabilities.
 - [x] Verify the homepage and footer at desktop and mobile sizes, then save a delivery checkpoint.
 
+## Supplied Product Image Integration
+
+- [x] Upload the supplied Smart Lanyard visual to managed storage and add it as the one focused hardware image in the product story.
+- [x] Verify the image remains balanced and fully visible on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
