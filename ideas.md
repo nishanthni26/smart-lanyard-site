@@ -116,6 +116,12 @@ The refinement uses **Figtree** for a more composed professional voice and IBM P
 
 **Future Signal** is the active design direction. The near-black, spatial canvas is punctuated by electric blue for active system light and mint only for live-state status. The single physical credential is treated as a hero artifact; every later product moment is abstract signal geometry, not another repeated image. Typography uses Space Grotesk at a decisive oversized scale, while IBM Plex Mono denotes calibration and live system detail.
 
+## Orbit Interface Refinement
+
+The current UI direction is **Orbit Interface**: spatial blue light, controlled glass-depth surfaces, and tactile motion only where it clarifies the system. The hero credential has a pointer-responsive tilt; all further product storytelling uses abstract orbits, signal streams, verification nodes and animated state transitions. The UI abandons generic rounded SaaS cards in favor of fine technical lines, panel segmentation and interaction-aware status language.
+
+The use-case and trust chapters are now treated as **dark verification plates**: nested dark panels, signal rails, calibration grids, status nodes and operational labels keep the product story inside one continuous space. The suspended-loop logo is raised in the navigation and footer and echoed by the orbit and node geometry across the page.
+
 ## Style Decisions
 
 The use-case layer is a **dark verification plate**, integrated into the same cinematic product film rather than a pale SaaS interlude. Electric blue and cyan remain system-path and active-state light, not decorative headline fills. The logo is scaled into a more visible suspended-loop identity in the navigation and footer, while later content echoes the credential through structural lines, status points, material-dark panels, and control geometry rather than repeating the image.
