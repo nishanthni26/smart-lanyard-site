@@ -114,6 +114,14 @@
 - [x] Build a controlled animated ID-card sequence that communicates identity, access, safety, and real-time status.
 - [x] Validate desktop/mobile motion, content clarity, and reduced-motion behavior, then save a delivery checkpoint.
 
+## Dark Cinematic Five-Section Rebuild
+
+- [x] Create the full-width dark hero with a clearly visible wearer and Smart Lanyard credential.
+- [x] Build the cinematic person-to-floating-credential scroll transition with soft glow motion.
+- [x] Implement the separate Students and Companies animated feature sets with exactly one visible at a time.
+- [x] Add the requested four-step process and final Request a Demo / Contact CTA.
+- [x] Validate all five sections, interactions, and mobile layout before saving a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
