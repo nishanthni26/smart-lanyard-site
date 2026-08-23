@@ -312,6 +312,12 @@
 - [x] Confirmed the upright desktop and word-adjacent mobile card placements are clear at their target breakpoints.
 - [x] Verify the responsive card placements on desktop and mobile, then save a delivery checkpoint.
 
+## Hero Card Position Adjustment
+
+- [x] Move the hero identity-card image lower across the responsive layouts.
+- [x] Confirmed the lower card placement remains balanced with hero copy at desktop and mobile breakpoints.
+- [x] Verify the updated desktop and mobile hero balance, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
