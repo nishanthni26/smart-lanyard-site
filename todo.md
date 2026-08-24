@@ -324,6 +324,12 @@
 - [x] Confirmed the selected image is absent and the simplified hero remains balanced at desktop and mobile breakpoints.
 - [x] Verify the simplified hero at desktop and mobile sizes, then save a delivery checkpoint.
 
+## Animated ID Card
+
+- [x] Add a subtle reduced-motion-safe animation to the main live-status ID card visual.
+- [x] Confirmed the animated ID card and glow remain clear and balanced at desktop and mobile breakpoints.
+- [x] Verify the animated ID card remains balanced and clear on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
