@@ -1,0 +1,77 @@
+/* Final responsive quality pass: keep content readable and controls comfortable at every viewport. */
+
+@media (min-width: 601px) and (max-width: 1050px) {
+  .friendly-nav { height: 104px; padding-inline: clamp(1.5rem, 5vw, 3rem); }
+  .friendly-brand { gap: .65rem; }
+  .friendly-brand img { width: 68px; height: 68px; }
+  .friendly-brand span { font-size: .68rem; }
+  .friendly-nav nav { gap: clamp(.9rem, 2.5vw, 1.5rem); margin-right: 1rem; }
+  .friendly-nav nav button, .friendly-nav nav a { font-size: .68rem; }
+  .friendly-hero { min-height: 570px; padding: 142px clamp(1.5rem, 7vw, 4rem) 64px; }
+  .friendly-intro, .friendly-ai, .friendly-problems, .friendly-roadmap { padding-inline: clamp(1.5rem, 7vw, 4rem); }
+  .friendly-audience, .friendly-platform { padding-inline: clamp(1.5rem, 6vw, 4rem); }
+  .friendly-team { padding-inline: clamp(1.5rem, 6vw, 4rem); }
+  .friendly-platform-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .friendly-team-grid article { min-height: 210px; }
+  .friendly-team-grid article > span { width: 68px; height: 68px; margin-bottom: 1.6rem; }
+  .site-footer-main { grid-template-columns: minmax(220px, .8fr) minmax(330px, 1.2fr); gap: clamp(2rem, 6vw, 4.5rem); padding-inline: clamp(1.5rem, 6vw, 4rem); }
+  .site-footer-bottom { padding-inline: clamp(1.5rem, 6vw, 4rem); }
+  .faq-nav { height: 84px; padding-inline: clamp(1.5rem, 5vw, 3rem); }
+  .faq-brand img { width: 46px; height: 46px; }
+  .faq-brand span { font-size: .66rem; }
+  .faq-nav nav { gap: clamp(.9rem, 2.4vw, 1.45rem); margin-right: 1rem; }
+  .faq-hero { min-height: 390px; padding: 100px clamp(1.5rem, 8vw, 5rem) 78px; }
+  .faq-guide, .faq-content, .faq-audiences { padding-inline: clamp(1.5rem, 7vw, 4rem); }
+  .demo-nav { height: 84px; padding-inline: clamp(1.5rem, 5vw, 3rem); }
+  .demo-brand img { width: 46px; height: 46px; }
+  .demo-brand span { font-size: .66rem; }
+  .demo-nav nav { gap: clamp(.9rem, 2.4vw, 1.45rem); margin-right: 1rem; }
+  .demo-hero { min-height: 0; padding: 4.5rem clamp(1.5rem, 8vw, 5rem) 5.5rem; }
+}
+
+@media (max-width: 600px) {
+  .friendly-nav { height: 74px; padding-inline: 1rem; }
+  .friendly-brand img { width: 42px; height: 42px; }
+  .friendly-brand span { font-size: .57rem; }
+  .friendly-hero { padding-top: 102px; padding-inline: 1rem; }
+  .friendly-hero-copy > p:not(.friendly-eyebrow) { max-width: 31rem; }
+  .friendly-intro, .friendly-audience, .friendly-solutions, .friendly-ai, .friendly-platform, .friendly-team, .friendly-roadmap { padding-inline: 1rem; }
+  .friendly-intro, .friendly-audience, .friendly-solutions, .friendly-ai, .friendly-platform { padding-block: 68px; }
+  .friendly-team, .friendly-roadmap { padding-block: 72px; }
+  .friendly-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
+  .friendly-tabs button { justify-content: center; min-width: 0; padding-inline: .55rem; }
+  .friendly-product-list article, .friendly-feature-grid article, .friendly-platform-grid article { padding: .9rem; }
+  .friendly-status-card { will-change: transform; }
+  .site-footer-main { gap: 2rem; padding: 38px 1rem 28px; }
+  .site-footer-links { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1rem; row-gap: 1.25rem; }
+  .site-footer-links a { font-size: .78rem; }
+  .site-footer-bottom { justify-content: flex-start; padding: 16px 1rem; }
+  .site-footer-bottom b { white-space: normal; font-size: .56rem; }
+  .faq-nav { height: 74px; padding-inline: 1rem; }
+  .faq-brand img { width: 38px; height: 38px; }
+  .faq-brand span { font-size: .54rem; }
+  .faq-hero { min-height: 0; padding: 76px 1rem 106px; }
+  .faq-hero h1 { font-size: clamp(3.2rem, 15vw, 4.1rem); }
+  .faq-guide, .faq-content, .faq-audiences { padding: 68px 1rem; }
+  .faq-cta { padding: 72px 1rem; }
+  .faq-trigger { min-height: 52px; padding-block: .58rem !important; }
+  .faq-footer { min-height: 76px; padding-inline: 1rem; }
+  .demo-nav { height: 74px; padding-inline: 1rem; }
+  .demo-brand img { width: 38px; height: 38px; }
+  .demo-brand span { font-size: .54rem; }
+  .demo-hero { gap: 2.4rem; padding: 48px 1rem 64px; }
+  .demo-intro h1, .demo-success h2 { font-size: clamp(3.15rem, 15vw, 3.8rem); }
+  .demo-form, .demo-success { padding: 1.1rem; }
+  .demo-fields { gap: .88rem; }
+  .demo-fields input, .demo-fields select { min-height: 50px; }
+  .demo-fields textarea { min-height: 126px; }
+  .demo-footer { min-height: 82px; padding: 1rem; }
+}
+
+@media (max-width: 380px) {
+  .friendly-brand span, .faq-brand span, .demo-brand span { font-size: .5rem; }
+  .friendly-hero h1 { font-size: 4rem; }
+  .friendly-intro h2, .friendly-section-title h2, .friendly-ai h2, .friendly-problems h2, .friendly-roadmap h2 { font-size: 2.8rem; }
+  .site-footer-links { column-gap: .75rem; }
+  .site-footer-links a { font-size: .72rem; }
+}
