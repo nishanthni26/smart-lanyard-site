@@ -380,6 +380,27 @@
 - [x] Ensure the transformation uses restrained, reduced-motion-safe animation and keeps hero copy and actions legible.
 - [x] Verify desktop and mobile animation behavior, then save a delivery checkpoint.
 
+## Custom Domain Connection
+
+- [ ] Bind the Hostinger-purchased domain smartlanyard.in to the live Smart Lanyard site through the managed custom-domain flow.
+- [ ] Configure the required DNS records at Hostinger and verify successful propagation and HTTPS activation.
+
+## Full Hostinger Deployment
+
+- [ ] Confirm that the available Hostinger plan supports the application's Node.js runtime and production database requirements.
+- [ ] Prepare the current full-stack application, secrets inventory, database migration path, and deployment package for Hostinger.
+- [ ] Deploy and validate the public website, FAQ, and database-backed Demo Request flow on smartlanyard.in.
+
+## Static Hostinger Conversion
+
+- [x] Replace the database-backed Demo Request submission with a static-safe contact handoff.
+- [x] Produce a static build that retains the homepage, FAQ, dark mode, navigation, animations, and supplied images.
+- [x] Validate the static build and prepare a Hostinger upload package with routing guidance for public pages.
+
+## Static Demo Page Revision
+
+- [x] Remove the Demo Request form and replace it with a clear, non-submitting static contact-information page.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
