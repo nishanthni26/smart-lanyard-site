@@ -406,6 +406,17 @@
 - [x] Add an accessible persistent WhatsApp action linked to +91 70220 04954 across the public website.
 - [x] Verify the floating action remains clear, responsive, and non-obstructive on desktop and mobile, then rebuild the Hostinger static package.
 
+## Hostinger Static Deployment
+
+- [x] Superseded by the user's decision to publish the static site through GitHub Pages rather than Hostinger file upload.
+- [x] Superseded by the GitHub Pages publication and custom-domain verification path.
+
+## GitHub Pages Deployment
+
+- [x] Add GitHub Pages workflow and custom-domain configuration for smartlanyard.in.
+- [x] Validate the GitHub Pages build and prepare the source repository for publication.
+- [ ] Publish the website through the user's GitHub account and verify GitHub Pages plus Hostinger DNS.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

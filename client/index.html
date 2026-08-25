@@ -16,6 +16,15 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        const redirect = sessionStorage.getItem("smartLanyardRedirect");
+        if (!redirect) return;
+        sessionStorage.removeItem("smartLanyardRedirect");
+        const target = new URL(redirect);
+        window.history.replaceState(null, "", `${target.pathname}${target.search}${target.hash}`);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
     <script
       defer
