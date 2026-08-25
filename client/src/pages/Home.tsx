@@ -8,6 +8,7 @@ import SiteFooter from "@/components/SiteFooter";
 import { useState } from "react";
 import "../friendly.css";
 import "../hero-keep.css";
+import "../solution-readability.css";
 
 type Audience = "education" | "enterprise";
 type Surface = "On Card" | "In App" | "Dashboard";

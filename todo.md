@@ -358,6 +358,12 @@
 - [x] Restore the pre-redesign homepage sections and styling after the hero.
 - [x] Confirm the combined homepage is clear and responsive at desktop and mobile breakpoints.
 
+## Solution Card Readability
+
+- [x] Increase the typography, feature labels, and spacing in the Schools and Workplaces solution cards.
+- [x] Confirmed the enlarged solution cards retain clean wrapping and responsive layout on desktop and mobile.
+- [x] Verify the enlarged solution-card content remains clear and responsive at desktop and mobile sizes, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

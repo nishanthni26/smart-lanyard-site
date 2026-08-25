@@ -1,0 +1,31 @@
+/* Larger solution-card type makes the detailed Schools and Workplaces feature lists comfortable to scan. */
+.friendly-solution-grid { gap: 18px; }
+.friendly-solution-grid article { min-height: 372px; padding: 1.35rem; }
+.friendly-solution-grid article > div svg { width: 26px; }
+.friendly-solution-grid article > div span { font-size: .68rem; }
+.friendly-solution-grid h4 { margin: 2rem 0 .65rem; font-size: 1.28rem; line-height: 1.15; letter-spacing: -.035em; }
+.friendly-solution-grid > article > p { font-size: .9rem; font-weight: 700; line-height: 1.58; }
+.friendly-solution-grid ul { gap: .68rem; margin-top: 1.35rem; }
+.friendly-solution-grid li { gap: .65rem; padding-top: .62rem; }
+.friendly-solution-grid li strong { font-size: .85rem; line-height: 1.33; }
+.friendly-solution-grid li small { margin-top: .18rem; font-size: .72rem; line-height: 1.35; }
+.friendly-surface-pills { gap: .26rem; }
+.friendly-surface-pills span { padding: .24rem .42rem; font-size: .62rem; line-height: 1.25; }
+
+@media (max-width: 950px) {
+  .friendly-solution-grid { gap: 14px; }
+  .friendly-solution-grid article { min-height: 0; padding: 1.2rem; }
+}
+
+@media (max-width: 600px) {
+  .friendly-solution-grid { gap: 12px; }
+  .friendly-solution-grid article { padding: 1.15rem; }
+  .friendly-solution-grid article > div svg { width: 24px; }
+  .friendly-solution-grid article > div span { font-size: .66rem; }
+  .friendly-solution-grid h4 { margin: 1.6rem 0 .55rem; font-size: 1.2rem; }
+  .friendly-solution-grid > article > p { font-size: .88rem; line-height: 1.56; }
+  .friendly-solution-grid li strong { font-size: .83rem; }
+  .friendly-solution-grid li small { font-size: .7rem; }
+  .friendly-surface-pills { max-width: 128px; }
+  .friendly-surface-pills span { font-size: .58rem; }
+}
