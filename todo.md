@@ -344,6 +344,14 @@
 - [x] Confirmed the supplied visual story is complete, balanced, and responsive at desktop and mobile breakpoints.
 - [x] Verify the imagery remains balanced and responsive on desktop and mobile, then save a delivery checkpoint.
 
+## UI/UX and Motion Quality Review
+
+- [x] Audit the homepage, FAQ, and Demo Request page for visual hierarchy, accessibility, interaction feedback, light/dark contrast, and responsive behavior.
+- [x] Completed desktop and mobile UI/UX audit: page hierarchy, mobile form controls, FAQ accordion readability, and footer grouping are sound; the homepage visual story benefits from richer but restrained motion feedback.
+- [x] Correct identified UI/UX issues and add restrained reduced-motion-safe animations that improve hierarchy and feedback.
+- [x] Confirmed the UI hierarchy, gallery feedback, FAQ readability, and touch-friendly Demo Request controls remain clear on desktop and mobile.
+- [x] Validate desktop/mobile, light/dark, and reduced-motion behavior before saving a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
