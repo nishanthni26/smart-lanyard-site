@@ -401,6 +401,11 @@
 
 - [x] Remove the Demo Request form and replace it with a clear, non-submitting static contact-information page.
 
+## Floating WhatsApp Contact
+
+- [x] Add an accessible persistent WhatsApp action linked to +91 70220 04954 across the public website.
+- [x] Verify the floating action remains clear, responsive, and non-obstructive on desktop and mobile, then rebuild the Hostinger static package.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.

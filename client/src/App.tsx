@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Faq from "./pages/Faq";
 import Demo from "./pages/Demo";
 import Home from "./pages/Home";
+import WhatsAppContact from "./components/WhatsAppContact";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -37,6 +38,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <WhatsAppContact />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
