@@ -374,6 +374,12 @@
 - [x] Upload the supplied transparent ID-card image to managed storage and place it within the homepage hero.
 - [x] Verify the hero remains balanced and readable on desktop and mobile, then save a delivery checkpoint.
 
+## Hero ID Transformation Animation
+
+- [x] Add a clear opening-hero visual that transitions from a traditional printed ID card to the supplied digital Smart Lanyard card.
+- [x] Ensure the transformation uses restrained, reduced-motion-safe animation and keeps hero copy and actions legible.
+- [x] Verify desktop and mobile animation behavior, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
