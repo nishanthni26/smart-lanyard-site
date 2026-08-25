@@ -422,7 +422,7 @@
 - [x] Simplify the mobile navigation, hero card transformation, and floating contact presentation to reduce visual crowding.
 - [x] Improve mobile spacing and readability across the homepage without changing the approved desktop composition.
 - [x] Validate the refined mobile experience and rebuild the GitHub Pages deployment artifact.
-- [ ] Publish the refined mobile experience to the GitHub Pages repository and verify the deployed result.
+- [x] Publish the refined mobile experience to the GitHub Pages repository and verify the deployed result.
 
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
