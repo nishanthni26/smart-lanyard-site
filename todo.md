@@ -352,13 +352,6 @@
 - [x] Confirmed the UI hierarchy, gallery feedback, FAQ readability, and touch-friendly Demo Request controls remain clear on desktop and mobile.
 - [x] Validate desktop/mobile, light/dark, and reduced-motion behavior before saving a delivery checkpoint.
 
-## Homepage Redesign
-
-- [x] Rework the homepage into a clearer, more distinctive product story while retaining working navigation, theme, FAQ, and Demo Request paths.
-- [x] Establish a stronger visual hierarchy with purposeful use of the supplied Smart Lanyard visuals and restrained interaction design.
-- [x] Confirmed the redesigned homepage, warmer wearer-backed hero, four essential card jobs, audience switcher, and visual rail are clear at desktop and mobile breakpoints.
-- [x] Verify the redesigned homepage on desktop and mobile, then save a delivery checkpoint.
-
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
