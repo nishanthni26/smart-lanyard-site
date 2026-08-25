@@ -1,0 +1,75 @@
+/* Mobile-only composition pass: preserve the approved desktop direction while reducing visual competition on phones. */
+@media (max-width: 600px) {
+  .kept-nav { min-height: 70px; padding-inline: .9rem; }
+  .kept-brand img { width: 34px; height: 34px; }
+  .kept-brand span { font-size: .5rem; }
+  .kept-nav-demo { display: none; }
+  .kept-nav .theme-toggle { min-width: 40px; min-height: 40px; margin-left: auto; }
+
+  .kept-hero { gap: 1.45rem; padding: 42px 1rem 54px; }
+  .kept-eyebrow { font-size: .56rem; }
+  .kept-hero h1 { margin: .8rem 0 1rem; font-size: clamp(3.55rem, 15vw, 4.5rem); line-height: .82; letter-spacing: -.075em; }
+  .kept-hero-copy > p:not(.kept-eyebrow) { font-size: .9rem; line-height: 1.58; }
+  .kept-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-top: 1.45rem; }
+  .kept-primary, .kept-actions button { justify-content: center; min-height: 46px; font-size: .67rem; }
+  .kept-proof { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem .4rem; margin-top: 1.4rem; font-size: .6rem; }
+
+  .kept-hero-art { width: min(100%, 238px); margin: .1rem auto 0; padding: .7rem 1.05rem .9rem; }
+  .kept-hero-art::after { top: 7%; right: -10%; bottom: 0; left: -10%; }
+  .kept-wearer { display: none; }
+  .kept-transformation { min-height: 280px; }
+  .kept-transformation-label { top: -2px; padding: .34rem .52rem; font-size: .44rem; }
+  .kept-traditional-card { width: min(100%, 156px); gap: .3rem; padding: .6rem .58rem .55rem; border-radius: 11px; }
+  .kept-print-photo { height: 94px; border-radius: 7px; }
+  .kept-print-line { height: 5px; }
+  .kept-print-line.wide { height: 7px; }
+  .kept-traditional-card em { font-size: .4rem; }
+  .kept-hero-identity-card { max-height: 260px; }
+  .kept-callout { padding: .42rem .5rem; font-size: .46rem; }
+  .kept-callout svg { width: 15px; }
+  .kept-callout b { font-size: .5rem; }
+  .kept-status { top: 14%; left: -16%; }
+  .kept-entry { display: none; }
+
+  .friendly-intro, .friendly-audience, .friendly-solutions, .friendly-ai, .friendly-platform, .friendly-team, .friendly-roadmap, .friendly-visual-story { padding-block: 60px; }
+  .friendly-intro h2, .friendly-section-title h2, .friendly-ai h2, .friendly-problems h2, .friendly-roadmap h2 { font-size: clamp(2.65rem, 12.5vw, 3.25rem); line-height: .9; }
+  .friendly-section-copy, .friendly-intro > div > p:not(.friendly-eyebrow), .friendly-audience-copy > span, .friendly-ai p:not(.friendly-eyebrow), .friendly-platform-grid span { line-height: 1.52; }
+
+  .friendly-solution-grid { gap: .8rem; }
+  .friendly-solution-grid article { padding: .95rem; border-radius: 15px; }
+  .friendly-solution-grid article > div svg { width: 21px; }
+  .friendly-solution-grid h4 { margin: .9rem 0 .38rem; font-size: 1.05rem; line-height: 1.18; }
+  .friendly-solution-grid > article > p { font-size: .79rem; line-height: 1.46; }
+  .friendly-solution-grid ul { gap: .38rem; margin-top: .82rem; }
+  .friendly-solution-grid li { gap: .45rem; padding-top: .42rem; }
+  .friendly-solution-grid li strong { font-size: .76rem; line-height: 1.28; }
+  .friendly-solution-grid li small { font-size: .62rem; line-height: 1.3; }
+  .friendly-surface-pills { max-width: 92px; gap: .18rem; }
+  .friendly-surface-pills span { padding: .16rem .26rem; font-size: .47rem; }
+  .friendly-solution-grid article:not(.is-mobile-expanded) li:nth-child(n + 4) { display: none; }
+  .friendly-feature-expand { display: inline-flex; align-items: center; justify-content: center; width: 100%; min-height: 42px; margin-top: .75rem; border: 1px solid #badbd5; border-radius: 10px; color: #0f5f5c; background: #effaf7; font: inherit; font-size: .69rem; font-weight: 900; }
+  .dark .friendly-feature-expand { border-color: #315860; color: #d9fffa; background: #173c42; }
+
+  .friendly-ai-list { gap: .62rem; }
+  .friendly-ai-list > div { min-height: 0; padding: .68rem .72rem; }
+  .friendly-ai-list > div > span { font-size: .8rem; }
+  .friendly-ai-list > div > span i { width: 1.55rem; height: 1.55rem; min-width: 1.55rem; font-size: .62rem; }
+  .friendly-ai-list > div > small { font-size: .58rem; }
+  .friendly-ai-list .friendly-surface-pills span { min-height: 0; padding: .22rem .34rem; font-size: .48rem; }
+
+  .friendly-platform-grid { gap: .62rem; margin-top: 1.55rem; }
+  .friendly-platform-grid article { min-height: 0; padding: .82rem; }
+  .friendly-platform-grid article > svg { width: 1.05rem; height: 1.05rem; flex-basis: 1.05rem; }
+  .friendly-platform-grid article strong { font-size: .8rem; line-height: 1.28; }
+  .friendly-platform-grid article span { margin-top: .25rem; font-size: .68rem; line-height: 1.4; }
+
+  .friendly-visual-grid { gap: .55rem; margin-top: 1.7rem; }
+  .friendly-visual-card > div { padding: .68rem; }
+  .friendly-visual-card h3 { font-size: .88rem; }
+  .friendly-visual-card span { font-size: .61rem; }
+  .friendly-visual-card.is-featured h3 { font-size: 1.24rem; }
+  .friendly-visual-card.is-featured span { font-size: .7rem; }
+
+  .whatsapp-contact { right: .8rem; bottom: .8rem; min-width: 48px; min-height: 48px; box-shadow: 0 10px 24px rgba(24,104,69,.24); }
+  .whatsapp-contact svg { width: 19px; height: 19px; }
+}
