@@ -6,7 +6,8 @@
     <title>Redirecting — Smart Lanyard</title>
     <script>
       sessionStorage.setItem("smartLanyardRedirect", window.location.href);
-      window.location.replace(window.location.origin + "/");
+      const base = window.location.hostname === "nishanthni26.github.io" ? "/smart-lanyard-site/" : "/";
+      window.location.replace(window.location.origin + base);
     </script>
   </head>
   <body></body>

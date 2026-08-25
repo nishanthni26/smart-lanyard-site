@@ -5,10 +5,11 @@ import { ArrowLeft, ArrowRight, BadgeCheck, Building2, GraduationCap, HelpCircle
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import ThemeToggle from "@/components/ThemeToggle";
 import SiteFooter from "@/components/SiteFooter";
+import { managedAsset, sitePath } from "@/lib/site-path";
 import "../faq.css";
 
-const brandMark = "/manus-storage/smart-lanyard-loop-logo_e44db5b8.png";
-const cardImage = "/manus-storage/smart-lanyard-transparent_b686992c.png";
+const brandMark = managedAsset("/manus-storage/smart-lanyard-loop-logo_e44db5b8.png");
+const cardImage = managedAsset("/manus-storage/smart-lanyard-transparent_b686992c.png");
 
 const questions = [
   { id: "what", group: "Getting started", question: "What is Smart Lanyard?", answer: "It is an ID card you can wear at school or work. It can show who you are, help you enter the right places and send useful updates." },
@@ -27,8 +28,8 @@ const questions = [
 export default function Faq() {
   return <main className="faq-page">
     <header className="faq-nav">
-      <a className="faq-brand" href="/" aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></a>
-      <nav aria-label="Primary navigation"><a href="/#product">The product</a><a href="/#solutions">Who it helps</a><a href="/#platform">Why it helps</a><a className="active" href="/faq">FAQ</a></nav>
+      <a className="faq-brand" href={sitePath("/")} aria-label="Smart Lanyard home"><img src={brandMark} alt="" /><span>SMART<br />LANYARD</span></a>
+      <nav aria-label="Primary navigation"><a href={sitePath("/#product")}>The product</a><a href={sitePath("/#solutions")}>Who it helps</a><a href={sitePath("/#platform")}>Why it helps</a><a className="active" href={sitePath("/faq")}>FAQ</a></nav>
       <ThemeToggle />
     </header>
 
@@ -37,7 +38,7 @@ export default function Faq() {
       <p className="faq-eyebrow"><i /> FREQUENTLY ASKED QUESTIONS</p>
       <h1>Clear answers<br />for <em>everyday questions.</em></h1>
       <p>Simple answers about a card that helps people identify themselves, enter the right places and stay informed.</p>
-      <a className="faq-back" href="/"><ArrowLeft /> Back to Smart Lanyard</a>
+      <a className="faq-back" href={sitePath("/")}><ArrowLeft /> Back to Smart Lanyard</a>
       <figure className="faq-card-study"><img src={cardImage} alt="Smart Lanyard connected ID card" /><figcaption>Wear it. Tap it. Stay informed.</figcaption></figure>
     </section>
 
@@ -53,7 +54,7 @@ export default function Faq() {
       </Accordion>
     </section>
 
-    <section className="faq-audiences"><div><p className="faq-eyebrow"><i /> BUILT AROUND PEOPLE</p><h2>For schools.<br /><em>For workplaces.</em></h2></div><div className="faq-audience-cards"><article><GraduationCap /><h3>Questions from education teams</h3><p>Talk through student identity, attendance, family updates and campus access.</p><a href="/#solutions">Explore education solutions <ArrowRight /></a></article><article><Building2 /><h3>Questions from workplace teams</h3><p>Talk through employee identity, access, administration and safety workflows.</p><a href="/#solutions">Explore workplace solutions <ArrowRight /></a></article></div></section>
+    <section className="faq-audiences"><div><p className="faq-eyebrow"><i /> BUILT AROUND PEOPLE</p><h2>For schools.<br /><em>For workplaces.</em></h2></div><div className="faq-audience-cards"><article><GraduationCap /><h3>Questions from education teams</h3><p>Talk through student identity, attendance, family updates and campus access.</p><a href={sitePath("/#solutions")}>Explore education solutions <ArrowRight /></a></article><article><Building2 /><h3>Questions from workplace teams</h3><p>Talk through employee identity, access, administration and safety workflows.</p><a href={sitePath("/#solutions")}>Explore workplace solutions <ArrowRight /></a></article></div></section>
 
     <SiteFooter />
   </main>;
