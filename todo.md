@@ -369,6 +369,11 @@
 - [x] Increase the typography, labels, and spacing in the platform-benefit grid and supporting AI feature list.
 - [x] Verify the enlarged platform and AI content remains clear and responsive at desktop and mobile sizes, then save a delivery checkpoint.
 
+## Hero Card Image Placement
+
+- [x] Upload the supplied transparent ID-card image to managed storage and place it within the homepage hero.
+- [x] Verify the hero remains balanced and readable on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
