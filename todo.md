@@ -337,6 +337,13 @@
 - [x] Correct discovered responsive issues in layout, spacing, typography, navigation, and form controls.
 - [x] Revalidate every public route across responsive breakpoints and save a delivery checkpoint.
 
+## Supplied Product Image Story
+
+- [x] Upload the supplied Smart Lanyard images to managed storage and place selected visuals in the homepage product story.
+- [x] Use the images to illustrate identity, access, safety, digital pass, timetable, and companion-app outcomes without excessive repetition.
+- [x] Confirmed the supplied visual story is complete, balanced, and responsive at desktop and mobile breakpoints.
+- [x] Verify the imagery remains balanced and responsive on desktop and mobile, then save a delivery checkpoint.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
