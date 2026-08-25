@@ -382,14 +382,14 @@
 
 ## Custom Domain Connection
 
-- [ ] Bind the Hostinger-purchased domain smartlanyard.in to the live Smart Lanyard site through the managed custom-domain flow.
-- [ ] Configure the required DNS records at Hostinger and verify successful propagation and HTTPS activation.
+- [x] Superseded by the user's decision to host the complete static package directly on Hostinger under smartlanyard.in.
+- [x] Superseded by Hostinger-managed DNS and HTTPS for the direct static-hosting deployment path.
 
 ## Full Hostinger Deployment
 
-- [ ] Confirm that the available Hostinger plan supports the application's Node.js runtime and production database requirements.
-- [ ] Prepare the current full-stack application, secrets inventory, database migration path, and deployment package for Hostinger.
-- [ ] Deploy and validate the public website, FAQ, and database-backed Demo Request flow on smartlanyard.in.
+- [x] Superseded because the user selected a static deployment rather than a Node.js runtime.
+- [x] Superseded by the completed self-contained static package with no server secrets or database migration requirement.
+- [x] Superseded because the Demo Request form was intentionally removed from the static site.
 
 ## Static Hostinger Conversion
 
