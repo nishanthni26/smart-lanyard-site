@@ -352,6 +352,12 @@
 - [x] Confirmed the UI hierarchy, gallery feedback, FAQ readability, and touch-friendly Demo Request controls remain clear on desktop and mobile.
 - [x] Validate desktop/mobile, light/dark, and reduced-motion behavior before saving a delivery checkpoint.
 
+## Partial Homepage Restoration
+
+- [x] Keep the approved redesigned hero shown by the user.
+- [x] Restore the pre-redesign homepage sections and styling after the hero.
+- [x] Confirm the combined homepage is clear and responsive at desktop and mobile breakpoints.
+
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add an interactive hero product state with pointer-responsive parallax, halo/orbit motion, and automatic identity-mode updates.
 - [x] Add magnetic, tactile button behavior while retaining keyboard and touch usability.
