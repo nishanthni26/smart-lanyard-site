@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { access, cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import { basename, join } from "node:path";
 
 const projectRoot = new URL("..", import.meta.url).pathname;
@@ -26,9 +26,18 @@ await cp(sourceDirectory, outputDirectory, { recursive: true });
 await mkdir(join(outputDirectory, "manus-storage"), { recursive: true });
 
 await Promise.all(managedAssets.map(async (assetPath) => {
-  const response = await fetch(`${hostedAssetOrigin}${assetPath}`);
-  if (!response.ok) throw new Error(`Could not download ${assetPath}: ${response.status}`);
-  await writeFile(join(outputDirectory, "manus-storage", basename(assetPath)), new Uint8Array(await response.arrayBuffer()));
+  const filename = basename(assetPath);
+  const localAsset = join(sourceDirectory, assetPath.slice(1));
+  const outputAsset = join(outputDirectory, "manus-storage", filename);
+  try {
+    await access(localAsset);
+    await cp(localAsset, outputAsset);
+    return;
+  } catch {
+    const response = await fetch(`${hostedAssetOrigin}${assetPath}`);
+    if (!response.ok) throw new Error(`Could not download ${assetPath}: ${response.status}`);
+    await writeFile(outputAsset, new Uint8Array(await response.arrayBuffer()));
+  }
 }));
 
 await writeFile(join(outputDirectory, ".nojekyll"), "");
