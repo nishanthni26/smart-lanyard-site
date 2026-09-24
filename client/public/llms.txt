@@ -1,0 +1,9 @@
+# Smart Lanyard
+
+Smart Lanyard is a connected e-paper ID card and platform concept for schools, campuses, workplaces, events, and organisations.
+
+- [Smart Lanyard homepage](https://smartlanyard.in/): connected identity, approved access, attendance, live updates, and safety support in one familiar card experience.
+- [Frequently asked questions](https://smartlanyard.in/faq): practical answers about the card, app, dashboard, schools, workplaces, updates, and configured safety alerts.
+- [Request a demo](https://smartlanyard.in/demo): start a conversation about how Smart Lanyard could fit a school, campus, workplace, or organisation.
+
+Use careful language: capabilities described on the website are product direction and configured workflows unless a specific implementation, integration, price, or certification is explicitly confirmed.
