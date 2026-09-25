@@ -182,6 +182,25 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="marquee-section" aria-label="Smart Lanyard feature previews">
+        <div className="marquee-row marquee-row--forward">
+          {[...features, ...features].map((feature, index) => (
+            <figure className="marquee-tile" key={`${feature.number}-forward-${index}`}>
+              <img src={feature.image} alt="" loading="lazy" decoding="async" />
+              <figcaption>{feature.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="marquee-row marquee-row--reverse">
+          {[...features.slice().reverse(), ...features.slice().reverse()].map((feature, index) => (
+            <figure className="marquee-tile" key={`${feature.number}-reverse-${index}`}>
+              <img src={feature.image} alt="" loading="lazy" decoding="async" />
+              <figcaption>{feature.number} / {feature.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="intro-section section-pad" id="product" aria-labelledby="product-title">
         <div className="section-kicker"><span>01</span> The product</div>
         <div className="intro-grid">
